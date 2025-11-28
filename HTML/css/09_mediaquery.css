@@ -1,0 +1,24 @@
+h1 { font-size : 4rem; }
+body {
+    /* vw 단위 : viewport width 현재 브라우저의 화면 크기 가로 넓이의 % 를 나타낸다. */
+    /* vh 단위 : viewport height 현재 브라우저의 화면 크기 세로 높이의 % 를 나타낸다. */
+    height : 100vh; /* 현재화면 크기 세로 높이의 100% */
+    background : url('../images/09_images/bg-light.jpg') no-repeat fixed;
+    background-size : cover;
+}
+/* 화면 크기가 768px 이상 1023 미만일 경우 다른 이미지를 사용하는 미디어 쿼리 */
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    body {
+        background : url('../images/09_images/bg-dark.jpg') no-repeat fixed;
+        background-size : cover;
+        color : white;
+    }
+}
+/* 화면 크기가 767px 이하일 때 다른 이미지를 사용하는 미디어 쿼리 */
+@media screen and (max-width : 767px){
+    body {
+        background : url('../images/09_images/bg-small.jpg') no-repeat fixed;
+        background-size : cover;
+        color : white;
+    }
+}

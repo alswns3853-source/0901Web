@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
+  <display-name>MustHaveJSP</display-name>
+  <welcome-file-list>
+  <!-- 서버의 주소와 프로젝트이름만 주소창에 입력하는 경우 출력할 파일 설정 -->
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.xhtml</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.xhtml</welcome-file>
+  </welcome-file-list>
+  <context-param>
+  	<param-name>INIT_PARAM</param-name>
+  	<param-value>web.xml에 저장한 초기화 매개변수</param-value>
+  </context-param>
+    <context-param>
+  	<param-name>OracleDriver</param-name>
+  	<param-value>oracle.jdbc.OracleDriver</param-value>
+  </context-param>
+      <context-param>
+  	<param-name>OracleURL</param-name>
+  	<param-value>jdbc:oracle:thin:@localhost:1521:ORCL</param-value>
+  </context-param>
+   <context-param>
+  	<param-name>OracleId</param-name>
+  	<param-value>musthave</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>OraclePwd</param-name>
+  	<param-value>1234</param-value>
+  </context-param>
+  
+    <context-param>
+  	<param-name>POSTS_PER_PAGE</param-name>
+  	<param-value>10</param-value>
+  </context-param>
+     <context-param>
+  	<param-name>POSTS_PER_BLOCK</param-name>
+  	<param-value>5</param-value>
+  </context-param>
+  
+  <session-config>
+  <!-- 세션의 유지 시간 설정(분단위) -->
+  	<session-timeout>1</session-timeout>
+  </session-config>
+  <!-- request.setCharterEncoding()메서드를 실행하도록 설정 -->
+  <!--  request.setCharterEncoding()메서드를 실행하도록 설정  -->
+<filter>
+<filter-name>SetCharEncoding</filter-name>
+<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+<init-param>
+<param-name>encoding</param-name>
+<param-value>utf-8</param-value>
+</init-param>
+</filter>
+<!--  filter가 실행되는 조건을 설정  -->
+<!--  /* : 모든 주소에서 실행하는 것을 의미  -->
+<filter-mapping>
+<filter-name>SetCharEncoding</filter-name>
+<url-pattern>/*</url-pattern>
+</filter-mapping>
+<!--  <servlet>
+	서블릿의 이름(아래의 서블릿 매핑에서 사용할 이름을 자유롭게 설정)
+  <servlet-name>MVCBoardList</servlet-name>
+	서블릿의 위치: 패키지명.클래스명
+	<servlet-class>model2.mvcboard.ListController</servlet-class>
+</servlet>
+서블릿을 실행 주소 설정
+<servlet-mapping>
+ 바로 위에서 설정할 servlet-name을 입력
+	<servlet-name>MVCBoardList</servlet-name>
+	주소창에서 실행할 주소 입력
+	<url-pattern>/mvcboard/list.do</url-pattern>
+</servlet-mapping>  -->
+  <!--  <error-page>
+  404에러 발생시 Exception.jsp를 실행하도록 설정
+  <error-code>404</error-code>
+  <location>/02/Exception.jsp</location>
+  </error-page>
+   <error-page>
+  <error-code>405</error-code>
+  <location>/02/Exception.jsp</location>
+  </error-page>
+   <error-page>
+  <error-code>500</error-code>
+  <location>/02/Exception.jsp</location>
+  </error-page> --> 
+</web-app>

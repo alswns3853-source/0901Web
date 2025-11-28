@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>플렉스 레이아웃 연습</title>
+    <link rel="stylesheet" href="./css/10_flex.css">
+</head>
+<body>
+    <h3>flex-direction</h3>
+    <div class="fdcon" id="fd1">
+        <div class="fdbox"><p>1</p></div>
+        <div class="fdbox"><p>2</p></div>
+        <div class="fdbox"><p>3</p></div>
+    </div>
+       <div class="fdcon" id="fd2">
+        <div class="fdbox"><p>1</p></div>
+        <div class="fdbox"><p>2</p></div>
+        <div class="fdbox"><p>3</p></div>
+    </div>
+       <div class="fdcon" id="fd3">
+        <div class="fdbox"><p>1</p></div>
+        <div class="fdbox"><p>2</p></div>
+        <div class="fdbox"><p>3</p></div>
+    </div>
+       <div class="fdcon" id="fd4">
+        <div class="fdbox"><p>1</p></div>
+        <div class="fdbox"><p>2</p></div>
+        <div class="fdbox"><p>3</p></div>
+    </div>
+
+    <hr>
+
+
+    <h3>flex-wrap / flex-flow</h3>
+    <div class="fwcon" id="opt1">
+         <div class = "fdbox"><p>1</p></div>
+         <div class = "fdbox"><p>2</p></div>
+         <div class = "fdbox"><p>3</p></div>
+         <div class = "fdbox"><p>4</p></div>
+         <div class = "fdbox"><p>5</p></div>
+         <div class = "fdbox"><p>6</p></div>
+</div>
+         <div class="fwcon" id="opt2">
+
+         <div class = "fdbox"><p>1</p></div>
+         <div class = "fdbox"><p>2</p></div>
+         <div class = "fdbox"><p>3</p></div>
+         <div class = "fdbox"><p>4</p></div>
+         <div class = "fdbox"><p>5</p></div>
+         <div class = "fdbox"><p>6</p></div>
+</div>   
+         <div class="fwcon" id="opt3">
+
+         <div class = "fdbox"><p>1</p></div>
+         <div class = "fdbox"><p>2</p></div>
+         <div class = "fdbox"><p>3</p></div>
+         <div class = "fdbox"><p>4</p></div>
+         <div class = "fdbox"><p>5</p></div>
+         <div class = "fdbox"><p>6</p></div>
+         </div>
+
+         <hr>
+         
+         <h3>justify-content 속성</h3>
+         <div class="fwcon" id="start">
+            <div class="fdbox"><p>1</p></div>
+            <div class="fdbox"><p>2</p></div>
+            <div class="fdbox"><p>3</p></div>
+         </div>
+          
+         <div class="fwcon" id="end">
+            <div class="fdbox"><p>1</p></div>
+            <div class="fdbox"><p>2</p></div>
+            <div class="fdbox"><p>3</p></div>
+         </div>
+           
+         <div class="fwcon" id="center">
+            <div class="fdbox"><p>1</p></div>
+            <div class="fdbox"><p>2</p></div>
+            <div class="fdbox"><p>3</p></div>
+         </div>
+           
+         <div class="fwcon" id="between">
+            <div class="fdbox"><p>1</p></div>
+            <div class="fdbox"><p>2</p></div>
+            <div class="fdbox"><p>3</p></div>
+         </div>
+           
+         <div class="fwcon" id="around">
+            <div class="fdbox"><p>1</p></div>
+            <div class="fdbox"><p>2</p></div>
+            <div class="fdbox"><p>3</p></div>
+         </div>
+           
+         <div class="fwcon" id="evenly">
+            <div class="fdbox"><p>1</p></div>
+            <div class="fdbox"><p>2</p></div>
+            <div class="fdbox"><p>3</p></div>
+         </div>
+
+         <hr>
+
+         <h3>margin을 이용해서 주축 배치 디자인하기</h3>
+         <div class="fwcon" id="mstart">
+            <div class="fdbox" id="mright"><p>1</p></div>
+            <div class="fdbox"><p>2</p></div>
+            <div class="fdbox"><p>3</p></div>
+         </div>
+
+<hr>
+
+<h3>align-items 속성</h3>
+
+<div class="aicon" id="ai1">
+       <div class="fdbox"><p>1</p></div>
+       <div class="fdbox"><p>2</p></div>
+       <div class="fdbox"><p>3</p></div>
+       <div class="fdbox"><p>4</p></div>
+</div>
+<div class="aicon" id="ai2">
+       <div class="fdbox"><p>1</p></div>
+       <div class="fdbox"><p>2</p></div>
+       <div class="fdbox"><p>3</p></div>
+       <div class="fdbox"><p>4</p></div>
+</div>
+<div class="aicon" id="ai3">
+       <div class="fdbox"><p>1</p></div>
+       <div class="fdbox"><p>2</p></div>
+       <div class="fdbox"><p>3</p></div>
+       <div class="fdbox"><p>4</p></div>
+</div>
+<div class="aicon" id="ai4">
+       <div class="fdbox"><p>1</p></div>
+       <div class="fdbox"><p style="font-size: 14px;">2</p></div>
+       <div class="fdbox"><p style="font-size: 25px;">3</p></div>
+       <div class="fdbox"><p style="font-size: 10px;">4</p></div>
+</div>
+<div class="aicon" id="ai5">
+       <div class="fdbox"><p>1</p></div>
+       <div class="fdbox"><p>2</p></div>
+       <div class="fdbox"><p>3</p></div>
+       <div class="fdbox"><p>4</p></div>
+</div>
+
+<hr>
+
+<h3>align-self 속성</h3>
+<div class="aicon">
+    <div class="fdbox" id="as1"><p>1</p></div>
+    <div class="fdbox" id="as2"><p>2</p></div>
+    <div class="fdbox" id="as3"><p>3</p></div>
+    <div class="fdbox" id="as4"><p>4</p></div>
+    <div class="fdbox" id="as5"><p>5</p></div>
+    <div class="fdbox" id="as6"><p>6</p></div>
+</div>
+
+<hr>
+
+<h3>align-content 속성</h3>
+
+<div class="accon" id="ac1">
+    <div class="fdbox"><p>1</p></div>
+    <div class="fdbox"><p>2</p></div>
+    <div class="fdbox"><p>3</p></div>
+    <div class="fdbox"><p>4</p></div>
+    <div class="fdbox"><p>5</p></div>
+    <div class="fdbox"><p>6</p></div>
+</div>
+<div class="accon" id="ac2">
+    <div class="fdbox"><p>1</p></div>
+    <div class="fdbox"><p>2</p></div>
+    <div class="fdbox"><p>3</p></div>
+    <div class="fdbox"><p>4</p></div>
+    <div class="fdbox"><p>5</p></div>
+    <div class="fdbox"><p>6</p></div>
+</div>
+<div class="accon" id="ac3">
+    <div class="fdbox"><p>1</p></div>
+    <div class="fdbox"><p>2</p></div>
+    <div class="fdbox"><p>3</p></div>
+    <div class="fdbox"><p>4</p></div>
+    <div class="fdbox"><p>5</p></div>
+    <div class="fdbox"><p>6</p></div>
+</div>
+<div class="accon" id="ac4">
+    <div class="fdbox"><p>1</p></div>
+    <div class="fdbox"><p>2</p></div>
+    <div class="fdbox"><p>3</p></div>
+    <div class="fdbox"><p>4</p></div>
+    <div class="fdbox"><p>5</p></div>
+    <div class="fdbox"><p>6</p></div>
+</div>
+<div class="accon" id="ac5">
+    <div class="fdbox"><p>1</p></div>
+    <div class="fdbox"><p>2</p></div>
+    <div class="fdbox"><p>3</p></div>
+    <div class="fdbox"><p>4</p></div>
+    <div class="fdbox"><p>5</p></div>
+    <div class="fdbox"><p>6</p></div>
+</div>
+<div class="accon" id="ac6">
+    <div class="fdbox"><p>1</p></div>
+    <div class="fdbox"><p>2</p></div>
+    <div class="fdbox"><p>3</p></div>
+    <div class="fdbox"><p>4</p></div>
+    <div class="fdbox"><p>5</p></div>
+    <div class="fdbox"><p>6</p></div>
+</div>
+    <hr>
+
+<h3>gap 속성</h3>
+
+<div class="gapcon">
+    <div class="gapbox"><p>1</p></div>
+    <div class="gapbox"><p>2</p></div>
+    <div class="gapbox"><p>3</p></div>
+    <div class="gapbox"><p>4</p></div>
+    <div class="gapbox"><p>5</p></div>
+</div>
+
+<hr>
+
+<h3>flex-basis 속성</h3>
+
+<div class="fbcon">
+    <div class="fbbox"><p>가나다라마</p></div>
+    <div class="fbbox"><p>가나다라마바사</p></div>
+    <div class="fbbox"><p>ABCDE</p></div>
+</div>
+
+<hr>
+
+<h3>flex-grow 속성</h3>
+
+<div class="fgcon">
+    <div class="fgbox" id="fg1"><p>1</p></div>
+    <div class="fgbox" id="fg2"><p>2</p></div>
+    <div class="fgbox" id="fg3"><p>3</p></div>
+    <div class="fgbox" id="fg4"><p>4</p></div>
+</div>
+
+<hr>
+
+<h3>flex-shrink 속성</h3>
+
+<div class="fscon">
+    <div class="fsbox" id="fs1"><p>1</p></div>
+    <div class="fsbox" id="fs2"><p>2</p></div>
+    <div class="fsbox" id="fs3"><p>3</p></div>
+    <div class="fsbox" id="fs4"><p>4</p></div>
+</div>
+
+
+</body>
+</html>

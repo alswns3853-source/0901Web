@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>텍스트를 표현하는 스타일</title>
+  <link rel="stylesheet" href="./css/05_text_css.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <h1>텍스트</h1>
+  <p id="p1">텍스트 단락 입니다.</p>
+  <p id="p2">텍스트 단락2 입니다.</p>
+  <i class="fa-solid fa-house"></i>
+
+  <hr>
+  <!-- 텍스트 컬러와 정렬 연습 -->
+  <p>껍질에 붉은 빛이 돌아 레드향이라 불린다.
+    레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 과육이 붉고 통통하다</p>
+  <p class="center">껍질에 붉은 빛이 돌아 레드향이라 불린다.
+    레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 과육이 붉고 통통하다</p>
+  <p class="justify">껍질에 붉은 빛이 돌아 레드향이라 불린다.
+    레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 과육이 붉고 통통하다</p>
+
+  <hr>
+
+  <!-- line-height 연습 -->
+  <p class="lineheight">껍질에 붉은 빛이 돌아 레드향이라 불린다.
+    레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 과육이 붉고 통통하다</p>
+
+  <h1 class="heading">HTML</h1>
+
+  <hr>
+
+  <!-- text-decoration 연습 -->
+  <p id="tdn">none</p>
+  <p id="tdu">underline</p>
+  <p id="tdo">overline</p>
+  <p id="tdl">line through</p>
+  <a href="#" id="atdn">텍스트 데코레이션 가장 많이 씀</a><br>
+
+  <hr>
+
+  <!-- text-shadow 연습 -->
+  <h1 class="shadow1">HTML</h1>
+  <h1 class="shadow2">CSS</h1>
+  <h1 class="shadow3">자바스크립트</h1>
+
+  <hr>
+
+  <!-- text-transform 연습 -->
+  <p class="trans1">html</p>
+  <p class="trans2">css</p>
+  <p class="trans3">JAVASCRIPT</p>
+
+  <hr>
+
+  <!-- letter-spacing, word-spacing 연습 -->
+  <p>HTML CSS</p>
+  <p id="letter">HTML CSS</p>
+  <p id="word">HTML CSS</p>
+
+  <hr>
+
+  <!-- list-style-type 연습 -->
+
+  <ul class="book1">
+    <li>개발 시리즈</li>
+    <li>코딩 시리즈</li>
+    <li>된다 시리즈</li>
+  </ul>
+  <ul class="book2">
+    <li>개발 시리즈</li>
+    <li>코딩 시리즈</li>
+    <li>된다 시리즈</li>
+  </ul>
+
+  <hr>
+  <!-- list-style-image 연습 -->
+  <ul class="bullet">
+    <li>회사소개</li>
+    <li>도서</li>
+    <li>자료실</li>
+  </ul>
+  <!-- list-style 연습 -->
+  <ul class="liststyle">
+    <li>회사소개</li>
+    <li>도서</li>
+    <li>자료실</li>
+  </ul>
+
+  <hr>
+  <!-- 테이블 관련 스타일 연습 -->
+  <h2>상품 구성</h2>
+  <table>
+    <caption>선물용과 가정용 상품 구성</caption>
+    <tr>
+      <th>용도</th>
+      <th>중량</th>
+      <th>갯수</th>
+      <th>가격</th>
+    </tr>
+    <tr>
+      <td rowspan="2">선물용</td>
+      <td>3kg</td>
+      <td>11~16과</td>
+      <td>35,000원</td>
+    </tr>
+    <tr>
+      <td>5kg</td>
+      <td>18~26과</td>
+      <td>52,000원</td>
+    </tr>
+    <tr>
+      <td rowspan="2">가정용</td>
+      <td>3kg</td>
+      <td>11~16과</td>
+      <td>30,000원</td>
+    </tr>
+    <tr>
+      <td>5kg</td>
+      <td>18~26과</td>
+      <td>47,000원</td>
+    </tr>
+  </table>
+</body>
+
+</html>

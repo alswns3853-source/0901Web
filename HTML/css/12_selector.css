@@ -1,0 +1,342 @@
+/* 연결 선택자 4가지
+
+/* 하위 선택자 ( A B ) : 상위태그(A) 하위의 모든 하위태그(B)를 선택한다. */
+#cssec p {
+    color: blue;
+}
+
+/* 자식 선택자 ( A>B ) : 부모태그(A) 하위의 모든 자식태그(B)를 선택한다. */
+#cssec2>p {
+    color: red;
+}
+
+/* 인접 형제 선택자 ( A+B ) : 태그(A)와 형제태그(B)들 중 첫번째 태그를 선택한다 */
+#adjsec+p {
+    color: green;
+}
+
+/* 형제 선택자 (A~B) : 태그(A)와 모든 형제태그(B)를 선택한다. */
+#sibsec~p {
+    color: orange;
+}
+
+/* 속성 선택자 7가지 */
+/* 속성 선택자는 지정한 요소에 [속성]을 사용해서 선택한다. */
+/* [속성] 선택자 : 선택한 요소(태그)에 [속성]이 있으면 그 요소를 선택한다. */
+.atag[href] {
+    background: yellow;
+    border: 1px solid black;
+}
+
+/*[속성 = 값] 선택자 : 선택한 요소(태그)에 [속성]의 값이 일치하는 그 요소를 선택한다. */
+.atag2[target="_blank"] {
+    background: green;
+    border: 1px solid black;
+}
+
+/* [속성 ~= 값] 선택자 : 여러 속성 값 중에서 해당 값이 포함되어 있는 요소를 선택한다. */
+[class~="button"] {
+    background: blue;
+    color: white;
+    border: 1px solid black;
+}
+
+/* [속성 |=값] 선택자 : 특정 값이 포함된 속성을 가진 요소를 찾아서 선택한다. 
+                       "값"이랑 같거나 "값-" 으로 시작하는 요소를 찾는다. */
+a[title |="us"] {
+    background-color: black;
+    color: white;
+
+}
+
+a[title |="jap"] {
+    background-color: green;
+    color: yellow;
+}
+
+a[title |="chn"] {
+    background-color: blue;
+    color: white;
+}
+
+/* [속성 ^= 값] 선택자 : 특정 값으로 시작하는 요소를 찾아 스타일 적용 */
+a[title ^="eng"] {
+    background-color: black;
+    color: white;
+}
+
+a[title^="jap"] {
+    background-color: green;
+    color: yellow;
+}
+
+a[title^="chin"] {
+    background-color: blue;
+    color: white;
+}
+
+/*[속성 $=값]선택자 : 특정 값으로 끝나는 요소를 찾아서 스타일 적용 */
+a[href $="hwp"] {
+    background-color: red;
+
+}
+
+a[href $="xls"] {
+    background-color: yellow;
+}
+
+/* [속성 *= 값] 선택자 : 값의 일부가 일치하는 속성을 가진 요소를 찾아 스타일 적용 */
+a[href *="google"] {
+    background-color: blue;
+    color: white;
+}
+
+
+/* 가상 클래스 */
+/* 사용자 동작에 반응하는 가상 클래스
+   :link - 방문하지 않은 링크에 스타일 적용
+   :visited - 방문한 링크에 스타일 적용
+   :active - 웹 요소를 활성화했을 때 스타일 적용
+   :hover - 웹 요소에 마우스를 올렸을 때 스타일 적용
+   :focus - 웹 요소에 초점이 맞추어졌을 때의 스타일 적용 */
+.navi ul li {
+    display: inline-block;
+    width: 150px;
+    height: 10px;
+}
+
+.navi a:link,
+.navi a:visited {
+    display: block;
+    font-size: 14px;
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.navi a:hover,
+.navi a:focus {
+    background-color: #222;
+    color: white;
+}
+
+.navi a:active {
+    background-color: red;
+}
+
+/* 요소 상태에 따른 가상 클래스 선택자 
+    :target - 앵커로 연결된 부분에 스타일 적용
+    :enabled, :disabled - 요소의 사용 여부에 따라 스타일 적용
+    :checked - 라디오 버튼이나 체크 박스에 체크했을 때 스타일 적용 */
+#intro:target {
+    background-color: blue;
+    color: white;
+}
+
+#room input:checked+label {
+    color: red;
+    font-weight: bold;
+}
+
+#reservation input:disabled {
+    background-color: black;
+    color: white;
+}
+
+#reservation input:enabled {
+    background-color: yellow;
+    color: blue;
+}
+
+/* 문서 구조에 따른 가상 클래스 선택자
+   :first-child- 여러 요소 중 첫 번째 요소를 선택
+   :last-child - 여러 요소 중 마지막 요소를 선택
+   :only-child - 여러 요소 중 자식 요소가 하나일 떄 선택
+   :nth-child(숫자 또는 수식) - 지정한 위치의 자식 요소를 선택
+   A:nth-of-type(숫자 또는 수식) - a 요소를 기준으로 지정한 위치의 자식 요소를 선택 */
+.container {
+    width: 300px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.container p:first-child {
+    /* container클래스 요소의 첫 번째 자식 요소가 p 태그이면 아래의 스타일 적용 */
+    background-color: yellow;
+
+
+}
+
+.container :last-child {
+    background-color: lightblue;
+}
+
+.container div:only-child {
+    background-color: pink;
+}
+
+.container div:nth-of-type(2) {
+    /* container클래스 요소의 두 번째 p태그에 아래의 스타일 적용 */
+    background-color: blue;
+    color: white;
+}
+
+.nthcon{
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items:  center;
+    gap: 5px;
+    margin-top: 20px;
+}
+.item{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
+}
+/* 3번째 자식 요소 선택 */
+/*.nthcon :nth-child(3){
+    background-color: yellow;
+} */
+
+/* 짝수 번째 자식 요소 선택 */
+/*.nthcon :nth-child(2n){
+    background-color: blue;
+} */
+
+/* 4번째 자식요소 부터 선택 */
+/*.nthcon :nth-child(n+4){
+    background-color: red;
+} */
+
+/* 4번째 자식요소 까지 선택 */
+/*.nthcon :nth-child(-n+4){
+    background-color: green;
+}*/
+
+/* 3번째 자식요소 부터 5번째 자식요소 까찌 선택 */
+.nthcon :nth-child(n+3):nth-child(-n+5){
+    background-color: pink;
+}
+
+/*가상 클래스 :not() - 괄호 안에 있는 요소를 제외하고 선택 */
+#notcon input:not([type="tel"]){/* type="tel" 이라는 속성을 가진 요소를 제외한 input 요소에 스타일 적용 */
+    background-color: yellow;
+}
+
+
+/* 가상 클래스 A:has(B) - A 요소가 괄호 안의 B 요소를 가지고 있다면 선택 */
+#hascon{
+    width: 100%;
+    background-color: black;
+}
+#hascon nav{
+    width: 600px;
+    height: 60px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#hascon nav a{
+    font-size: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    padding: 0.4rem 0;
+}
+#hascon nav a:hover{
+    color: orange;
+}
+#hascon nav:has(a:hover) a:not(:hover){
+    opacity: 0.3; /*투명도 설정 */
+}
+
+/* 가상 요소 */
+/* ::first-letter / ::first-line 요소 
+     특정요소의 첫번째 글자(줄)에 스타일 적용*/
+
+.flcon p::first-letter{
+    font-size: 2em;
+    font-weight: bold;
+}
+.flcon2 p::first-line{
+    font-size: 2em;
+    font-weight: bold;
+}
+/* ::before / ::after 요소
+   웹 요소의 앞이나 뒤에 내용이나 스타일을 넣을 수 있다. 
+   *** 항상 content 속성을 사용해야한다. 내용이 없을 때도 content=""라고 지정해줘야함 */
+.bacon h1::before {
+    content: "*";
+    color: red;
+    margin-right: 5px;
+}
+.bacon h1:after{
+    content: "🌹❤😊";
+    margin-left: 10px;
+}
+
+/* CSS 함수 살펴보기 
+     :root 가상 클래스 - 문서의 최상위 요소<html> 선택, CSS 변수를 사용할 때 쓴다.
+     CSS 변수 - 변수 이름 앞에 하이픈(-) 2개를 붙여서 사용, 용도를 알 수 있게 이름을 지정
+     var() 함수 - css 변수를 사용할 때 쓰는 함수 괄호 안에 CSS변수 이름을 넣으면 된다.*/
+:root {
+    --main-bg-color : yellow;
+    --main-text-color : blue;
+}
+.cssvar{
+    width: 100%;
+    height: 200px;
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+}
+/* calc()함수 : 괄호 안에 크기 값이나 각도, 시간, 백분율, 숫자 등 다양한 단위 값을 사용한 계산식을 계산해주는 함수*/
+/* min(), max() 함수 : 괄호 안에 나열된 값 중 가장 적은(큰) 값을 설정해준다. */
+/* clamp() 함수 : 최소, 최적, 최대 3가지를 이용하여 최소~최적~최대까지 값을 설정해준다.  */
+.calc{
+    width: calc(100% - 80px);
+    margin: auto;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.calc h1{
+    /* font-size: max(3vw, 2em); */
+    font-size: clamp(1rem, 2vw, 2rem);
+}
+/* filter()함수 - 포토샵 없이 코드만으로 여러가지 시각적 효과를 추가할 수 있다. */
+
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap : 10px;
+}
+.gallery img{
+    width: 80%;
+    border-radius: 50%;
+
+}
+.title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.image-container{
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    background: #f9f9f9;
+}
+.blur { filter: blur(5px) ;} /* 흐리게 */
+.brightness { filter: brightness(2);} /* 밝게 */
+.contrast { filter: contrast(200%);} /* 대비 2배로 */
+.drop-shadow {filter: drop-shadow(16px 16px 10px black);} /*그림자 추가 */
+.grayscale { filter: grayscale(100%);} /* 회색조 100%*/
+.invert{filter: invert(100%);} /*전체 색상 반전 */
+.sepia {filter: sepia(100%);} /*세피아 톤으로 */
+.opacity { filter: opacity(50%);}/*투명도 50% */
+.hue-rotate{filter: hue-rotate(90deg);}/*모든 hue 값을 90도로 이동 */
+.saturate { filter: saturate(500%);} /*채도500%*/

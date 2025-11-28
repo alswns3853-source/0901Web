@@ -1,0 +1,186 @@
+/* flex layout 용어 */
+/* 플렉스 컨테이너 : 플렉스 박스 레이아웃을 적용할 대상을 묶는 요소 */
+/* 플렉스 항목 : 플렉스 박스 레이아웃을 적용할 대상 */
+/* 주축 : 플렉스 항목을 배치하는 기본 방향, 변경하지 않으면 가로(왼->오)*/
+/*교차축 : 주축과 교차하는 방향, 주축의 반대, 기본적으로 세로(위->아래)*/
+
+/*플렉스 레이아웃 만드는 순서*/
+/* 1. 플렉스 컨테이너(부모태그)를 지정한다. (display : flex; 속성으로 결정)*/
+/* 2. 플렉스 컨테이너 안에 플렉스 항목(자식 태그)을 작성한다. */
+/* 3. 주축을 지정한다. (가로, 세로) -> 교차축은 자동으로 지정 (flex-direction 속성)*/
+/* 4. 주축의 배치 방법을 결졍한다. (justify-content 속성 ) */
+/* 5. 교차축의 배치 방법을 결졍한다. (align-items, aling-content 속성) */
+
+/* flex-direction 속성 : 주축의 방향을 결정한다. */
+.fdcon {
+    display : flex;
+    background-color: #eee;
+    border: 1px solid black;
+    margin-bottom: 30px;
+    width: 700px;
+}
+.fdbox {
+    padding: 5px 45px;
+    margin: 5px;
+    width: 80px;
+}
+.fdbox:nth-child(odd){
+    background-color: orange;
+
+}
+.fdbox:nth-child(even){
+    background-color: green;
+}
+#fd1{flex-direction: row;}
+#fd2{flex-direction: row-reverse;}
+#fd3{flex-direction: column;}
+#fd4{flex-direction: column-reverse;}
+
+/* flex-wrap 속성 : 플렉스 항목을 한 줄로 배치 또는 여러 줄로 배치를 지정한다. */
+/* flex-flow 속성 : flex-direction 속성과 flex-warp 속성을 한 번에 지정하는 속성이다. */
+.fwcon{
+    display: flex;
+    background-color: #eee;
+    border: 1px solid black;
+    margin-bottom: 30px;
+}
+#opt1{flex-wrap: wrap;}
+#opt2{flex-wrap: nowrap;}
+#opt3{flex-flow: row wrap-reverse;}
+
+/* justify-content 속성 : 주축의 항목 배치 방법을 지정한다. */
+#start {justify-content: flex-start;}
+#end {justify-content: flex-end;}
+#center {justify-content: center;}
+#between{justify-content: space-between;}
+#around{justify-content: space-around;}
+#evenly{justify-content: space-evenly;}
+
+/* margin을 이용해서 주축 배치 디자인하기*/
+#mstart{
+    justify-content: flex-start;
+}
+#mright{
+    margin-right: auto;
+}
+
+/* align-items 속성 : 플렉스 항목들 교차축의 배치를 지정한다. */
+.aicon{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: flex-start;
+    background-color: #eee;
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+#ai1{ align-items: flex-start;}
+#ai2{ align-items: flex-end;}
+#ai3{ align-items: center;}
+#ai4{ align-items: baseline;}
+#ai5{ align-items: stretch;}
+
+/* align-self 속성 : 특정 항목만 교차축의 배치를 다르게 지정할 때 사용하는 속성
+     ****특정 항목만 다르게 배치하기 떄문에 항목에 속성을 넣어주어야 한다. */
+#as1{align-self: auto;}/* 컨테이너의 align-items 속성을 따라간다. */
+#as2{align-self: flex-start;}
+#as3{align-self: flex-end;}
+#as4{align-self: baseline;}
+#as5{align-self: center;}
+#as6{align-self: stretch;}
+
+/* align-content 속성 : 플렉스 항목이 여러 줄이 되었을 때 항목의 줄을 배치하는 방법 */
+.accon{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-flow: row wrap;
+    border: 1px solid black;
+    background-color: #eee;
+    margin-bottom: 30px;
+    
+}
+
+#ac1{align-content: flex-start;}
+#ac2{align-content: flex-end;}
+#ac3{align-content: center;}
+#ac4{align-content: space-between;}
+#ac5{align-content: space-around;}
+#ac6{align-content: stretch;}
+
+/* gap 속성 : 항목들 사이의 간격을 지정해준다. */
+.gapcon {
+    width : 700px;
+    height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #eee;
+    border: 1px solid black;
+    gap : 20px;
+}
+.gapbox{
+    padding: 10px;
+    width: 80px;
+    background: yellow;
+
+}
+
+/* flex-basis 속성 : 플렉스 항목들의 기본 크기를 지정하는 속성 */
+.fbcon{
+    width: 800px;
+    display: flex;
+    border: 1px solid black;
+    background-color: #eee;
+    gap : 30px;
+}
+
+.fbbox{
+    background-color: black;
+    flex-basis: 150px;
+    color: white;
+    font-size: 2rem;
+}
+
+/* flex-grow 속성 : 플렉스 컨테이너에 남는 공간이 있을 때 그 공간을 어떻게 나누어 항목에 줄지 결정 */
+.fgcon{
+    width: 800;
+    height: 100px;
+    display: flex;
+    border: 1px solid black;
+    gap : 10px;
+}
+
+.fgbox{
+    flex-basis: 150px;
+
+}
+.fgbox:nth-child(odd) {background-color: orange;}
+.fgbox:nth-child(even) {background-color: green;}
+
+#fg1{flex-grow: 1;}
+#fg2{flex-grow: 1;}
+#fg3{flex-grow: 0;}
+#fg4{flex-grow: 2;}
+
+/*flex-shrink 속성 : 플렉스 컨테이너의 크기가 항목들의 크기보다 작을 때 항목이 얼마나 줄어들지 지정 */
+.fscon{
+    width: 800px;
+    height: 100px;
+    display: flex;
+    border: 1px solid black;
+    gap : 10px;
+}
+.fsbox{
+    flex-basis: 300px;
+
+}
+.fsbox:nth-child(odd) {background-color: orange;}
+.fsbox:nth-child(even) {background-color: green;}
+
+#fs1 { flex-shrink: 1;}
+#fs2{ flex-shrink: 0;}
+#fs3{ flex-shrink: 1;}
+#fs4{ flex-shrink: 2;}

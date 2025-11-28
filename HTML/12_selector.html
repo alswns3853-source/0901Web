@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고급 선택자 연습</title>
+    <link rel="stylesheet" href="./css/12_selector.css">
+</head>
+
+<body>
+    <h3>하위 선택자 </h3>
+
+    <sectino id="cssec">
+        <h1>예약 방법 및 사용 요금</h1>
+        <p>아직 온라인 예약 신청이 불가능</p>
+        <div>
+            <p>가족실(2~4인) : 6만원</p>
+            <p>도미토리(4인) : 2만5천원</p>
+        </div>
+    </sectino>
+
+    <hr>
+
+    <h3>자식 선택자</h3>
+
+    <sectino id="cssec2">
+        <h1>예약 방법 및 사용 요금</h1>
+        <p>아직 온라인 예약 신청이 불가능</p>
+        <div>
+            <p>가족실(2~4인) : 6만원</p>
+            <p>도미토리(4인) : 2만5천원</p>
+        </div>
+    </sectino>
+
+
+
+    <hr>
+
+    <h3>인접 형제 선택자</h3>
+
+    <sectino>
+        <h1 id="adjsec">예약 방법 및 사용 요금</h1>
+        <p>아직 온라인 예약 신청이 불가능</p>
+        <p>가족실(2~4인) : 6만원</p>
+        <p>도미토리(4인) : 2만5천원</p>
+
+    </sectino>
+
+    <hr>
+
+    <h3>형제 선택자</h3>
+
+    <sectino>
+        <h1 id="sibsec">예약 방법 및 사용 요금</h1>
+        <p>아직 온라인 예약 신청이 불가능</p>
+        <p>가족실(2~4인) : 6만원</p>
+        <p>도미토리(4인) : 2만5천원</p>
+
+    </sectino>
+
+    <hr>
+
+    <h3>[속성] 선택자</h3>
+
+    <ul>
+        <li><a class="atag">메인메뉴 :</a></li>
+        <li><a href="#" class="atag">메뉴 1</a></li>
+        <li><a href="#" class="atag">메뉴 2</a></li>
+        <li><a href="#" class="atag">메뉴 3</a></li>
+        <li><a href="#" class="atag">메뉴 4</a></li>
+    </ul>
+
+    <hr>
+
+    <h3>[속성 = 값] 선택자</h3>
+
+    <ul>
+        <li><a href="#" target="_blank" class="atag2">HTML</a></li>
+        <li><a href="#" class="atag2">CSS</a></li>
+        <li><a href="#" class="atag2">JS</a></li>
+    </ul>
+
+    <hr>
+
+    <h3>[속성 ~= 값] 선택자</h3>
+
+    <ul>
+        <li><a href="#" class="flat">매뉴1</a></li>
+        <li><a href="#" class="flat but">매뉴2</a></li>
+        <li><a href="#" class="button">매뉴3</a></li>
+        <li><a href="#" class="flat button">매뉴4</a></li>
+
+    </ul>
+
+    <hr>
+
+    <h3>[속성 |= 값] 선택자</h3>
+
+    <ul>
+        <li><a href="#" title="us-english">영어</a></li>
+        <li><a href="#" title="ja">일본어</a></li>
+        <li><a href="#" title="chn">중국어</a></li>
+    </ul>
+
+    <hr>
+
+    <h3>[속성^= 값]선택자</h3>
+
+    <ul>
+        <li><a href="#" title="english">영어</a></li>
+        <li><a href="#" title="japanese">일본어</a></li>
+        <li><a href="#" title="chinese">중국어</a></li>
+    </ul>
+
+    <hr>
+
+    <h3>[속성$=값]선택자</h3>
+
+    <ul>
+        <li><a href="intro.hwp">hwp 파일</a></li>
+        <li><a href="intro.xls">액셀 파일</a></li>
+    </ul>
+
+    <hr>
+
+    <h3>[속성*=값] 선택자</h3>
+
+    <ul>
+        <li><a href="https://www.google.com">구글</a></li>
+        <li><a href="https://www.naver.com">네이버</a></li>
+    </ul>
+
+    <hr>
+
+    <h3>가상클래스 - 사용자 동작에 반응하는 가상클래스</h3>
+
+    <nav class="navi">
+        <ul>
+            <li><a href="#">이용 안내</a></li>
+            <li><a href="#">객실 소개</a></li>
+            <li><a href="#">예약 방법</a></li>
+            <li><a href="#">예약 하기</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <h3>가상클래스 - 요소 상태에 따른 가상 클래스 선택자</h3>
+
+    <nav class="navi2">
+        <ul>
+            <li><a href="#intro">이용 안내</a></li>
+            <li><a href="#">객실 소개</a></li>
+            <li><a href="#">예약 방법</a></li>
+            <li><a href="#">예약 하기</a></li>
+        </ul>
+    </nav>
+    <div id="intro" class="contents">
+        <h2>이용안내</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur officia vel sequi eaque eligendi
+            distinctio esse iste minus unde doloremque laboriosam, excepturi, quis fugiat qui aliquid molestias quisquam
+            natus commodi.</p>
+    </div>
+    <div id="room" class="contents">
+        <h2>객실 선택</h2>
+        <input type="radio" name="room" id="basic">
+        <label for="basic">기본형(최대 2인)</label>
+        <input type="radio" name="room" id="family">
+        <label for="family">가족형(최대 4인)</label>
+    </div>
+    <div id="reservation" class="contents ">
+        <h2>예약하기</h2>
+        <label>이름: <input type="text" value="홍길동" disabled></label>
+        <label>형태: <input type="text"></label>
+    </div>
+
+    <hr>
+
+    <h3>문서 구조에 따른 가상 클래스 선택자</h3>
+
+    <div class="container"> 
+        <p>첫 번째</p>
+        <div>두번째</div>
+        <p>세번째</p>
+        <div>네 번째</div>
+    </div>
+    <div class="container">
+        <div>혼자~</div>
+    </div>
+
+    <div class="nthcon"> 
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+    </div>
+
+    <hr>
+
+    <h3>가상 클래스 :not</h3>
+
+    <div id="notcon">
+        <label>이름: <input type="text"></label><br>
+        <label>이메일: <input type="email"></label><br>
+        <label>연락처: <input type="tel"></label>
+    </div>
+
+    <hr>
+
+    <h3>가상 클래스 :has()</h3>
+    
+    <div id="hascon">
+        <nav>
+            <a href="#">home</a>
+            <a href="#">about</a>
+            <a href="#">portfolio</a>
+            <a href="#">contact</a>
+        </nav>
+    </div>
+
+    <hr>
+
+    <h3>::first-letter / ::first-line 가상요소</h3>
+
+    <div class="flcon">
+        <h3>CSS 가상요소</h3>
+        <p>가상 요소를 사용하면 CSS로 시각적 변화를 줄 수 있습니다.
+           이는 성능을 저하시키지 않으면서 웹 페이지를 꾸밀 수 있는 효율적인 방법입니다. </p>
+    </div>
+     <div class="flcon2">
+        <h3>CSS 가상요소</h3>
+        <p>가상 요소를 사용하면 CSS로 시각적 변화를 줄 수 있습니다.
+           이는 성능을 저하시키지 않으면서 웹 페이지를 꾸밀 수 있는 효율적인 방법입니다. </p>
+    </div>
+
+    <hr>
+
+    <h3>::before , ::after 요소</h3>
+
+    <div class="bacon">
+        <h1>CSS 가상요소</h1>
+    </div>
+
+    <hr>
+
+    <h3>CSS 변수 사용하기</h3>
+
+    <div class="cssvar">변수 사용하기</div>
+
+    <hr>
+
+    <h3>calc() 함수</h3>
+
+    <div class="calc">
+        <h1>CSS 함수</h1>
+    </div>
+    
+    <hr>
+
+    <h3>fliter() 함수</h3>
+    <div class="origin">
+        <img src="images/cat.jpg" style="border-radius: 50%;">
+    </div>
+    <div class="gallery">
+  <div class="image-container">
+    <div class="title">filter:blur(5px)</div>
+    <img src="./images/cat.jpg" class="blur">
+  </div>
+  <div class="image-container">
+    <div class="title">filter:brightness(2)</div>
+    <img src="./images/cat.jpg" class="brightness">
+  </div>
+  <div class="image-container">
+    <div class="title">filter:contrast(200%)</div>
+    <img src="./images/cat.jpg" class="contrast">
+  </div>
+  <div class="image-container">
+    <div class="title">filter:drop-shadow(16px 16px 10px black)</div>
+    <img src="./images/cat.jpg" class="drop-shadow">
+  </div>
+  <div class="image-container">
+    <div class="title">filter:grayscale(100%)</div>
+    <img src="./images/cat.jpg" class="grayscale">
+  </div>
+  <div class="image-container">
+    <div class="title">filter:invert(100%)</div>
+    <img src="./images/cat.jpg" class="invert">
+  </div>
+  <div class="image-container">
+    <div class="title">filter:sepia(100%)</div>
+    <img src="./images/cat.jpg" class="sepia">
+  </div>
+  <div class="image-container">
+    <div class="title">filter:opacity(50%)</div>
+    <img src="./images/cat.jpg" class="opacity">
+  </div>
+  <div class="image-container">
+    <div class="title">filter:hue-rotate(90deg)</div>
+    <img src="./images/cat.jpg" class="hue-rotate">
+  </div>
+  <div class="image-container">
+    <div class="title">filter:saturate(500%)</div>
+    <img src="./images/cat.jpg" class="saturate">
+  </div>
+</div>
+</body>
+
+</html>

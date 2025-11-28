@@ -1,0 +1,195 @@
+header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f3eeea;
+  padding: 0 20px;
+}
+
+header div a {
+  background-color: #ebe5e1;
+  border: 1px solid #ebe5e1;
+  border-radius: 5px;
+  color: #776b5d;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 5px;
+}
+
+header a {
+  width: 200px;
+  height: 100%;
+  background-color: transparent;
+}
+
+.bigImg {
+  background: url(../19_images/images/20240215050618_0.jpg) no-repeat center;
+  background-size: cover;
+  height: 500px;
+}
+
+.bigImg h2 {
+  padding-top: 50px;
+  text-align: center;
+}
+@media screen and (max-width: 1200px) {
+  body {
+    width: 100%;
+  }
+  .signupForm {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .signupForm {
+    width: 70%;
+  }
+}
+#mainNav {
+    margin-top : 10px;
+    margin-bottom : 5px;
+    width : 100%;
+    display : flex;
+    justify-content: space-around;
+    border-top : 1px solid black;
+    border-bottom : 1px solid black;
+}
+
+#mainNav a:link , nav a:visited {
+    text-decoration: none;
+    color: black;
+    font-size : 20px;
+    font-weight : bold;
+}
+
+.navi {
+  position: fixed;
+  bottom: 150px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+}
+
+.naviIcon {
+  position: relative;
+  text-align: center;
+  font-size: 40px;
+  height: 50px;
+  border-radius: 90px;
+  cursor: pointer;
+}
+
+.naviIcon i {
+  color: #b9b9b9;
+}
+
+.naviList {
+  position: absolute;
+  width: 100px;
+  height: 190px;
+  left: -50px;
+  top: -144px;
+  display: none;
+  background-color: transparent;
+}
+
+.naviList li {
+  padding: 2px;
+  margin-bottom: 7px;
+  list-style-type: none;
+  font-size: 16px;
+  background-color: #b9b9b9;
+  border-radius: 4px;
+}
+
+.naviList li a {
+  color: blue;
+}
+
+.naviIcon:hover {
+  background-color: black;
+
+  .naviList {
+    display: block;
+  }
+}
+
+.moveUp,
+.moveDown {
+  position: fixed;
+  bottom: 100px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  border-radius: 90px;
+  text-align: center;
+}
+
+.moveDown {
+  bottom: 50px;
+}
+
+.moveUp i,
+.moveDown i {
+  color: #b9b9b9;
+}
+footer {
+  margin-top: 30px;
+  background-color: #ebe5e1;
+  color: black;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  font-size: 12px;
+}
+footer address img {
+  margin-left: 20px;
+  width: 100px;
+  height: 30px;
+}
+footer address p {
+  margin-left: 20px;
+  padding: 3px 0;
+}
+.fIcon i {
+  font-size: 50px;
+}
+.cBody {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 한 줄에 4개 */
+  gap: 20px; /* 사진 사이 간격 */
+  margin: 20px 0;
+}
+
+.cItem {
+  text-align: center;   /* 이미지와 텍스트 중앙 정렬 */
+}
+
+.cItem .ciImg img {
+  width: 100%;     /* 이미지 너비 꽉 채우기 */
+  height: auto;    /* 비율 유지 */
+  border-radius: 8px;/* 모서리 둥글게(선택사항) */
+  object-fit: cover;
+  display :  block;
+  margin : 0 auto;
+}
+
+.cHeader h2 { margin: 0 0 6px 0; }
+.ciDes .itemHeader { display: block; font-weight: 600; margin-top: 8px; }
+.ciDes .itemPrice { display: block; color: #666; margin-top: 4px; }
+
+/* 반응형: 태블릿 이하에서 2열 */
+@media (max-width: 1024px) {
+  .cBody { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* 반응형: 모바일에서 1열 */
+@media (max-width: 600px) {
+  .cBody { grid-template-columns: 1fr; }
+}

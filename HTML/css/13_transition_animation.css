@@ -1,0 +1,170 @@
+.transcon {
+    width: 800px;
+    height: 200px;
+    margin: 20px auto;
+}
+
+.origin {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    margin: 40px;
+    display: inline-block;
+}
+
+.origin>div {
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    transition: 1s;
+}
+
+/* translate 함수 : 지정한 크기만큼 이동시키는 함수 */
+#movex:hover {
+    transform: translateX(50px);
+}
+
+#movey:hover {
+    transform: translateY(50px);
+}
+
+#movexy:hover {
+    transform: translate(50px, 50px);
+}
+
+/* scale 함수 : 지정한 배율만큼 확대/축소 시키는 함수 */
+
+#scalex:hover {
+    transform: scaleX(2);
+}
+
+#scaley:hover {
+    transform: scaleY(1.5);
+}
+
+#scalexy:hover {
+    transform: scale(0.7, 2);
+}
+
+/* rotate 함수 : 지정한 각도만큼 요소를 회전 시키는 함수  */
+#rotate1:hover {
+    transform: rotate(40deg);
+}
+
+#rotate2:hover {
+    transform: rotate(-40deg);
+}
+
+/* perspective 속성 : 원근감을 넣어주는 속성 */
+.pers{
+    width: 100px;
+    height: 100px;
+    margin: 40px;
+    display: inline-block;
+    border: 1px solid black;
+    perspective: 200px;
+
+}
+.pers>div{
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    transition: all 1s;    
+}
+#rotatex:hover{transform: rotateX(55deg);}
+#rotatey:hover{transform: rotateY(55deg);}
+#rotatez:hover{transform: rotateZ(55deg);}
+#rotatexyz:hover{transform: rotate3d(2.5, 1.2, -1.5, 55deg);}
+
+/* skew 함수 : 지정한 각도만큼 요소를 비튼다. */
+#skewx:hover{transform : skewx(30deg);}
+#skewy:hover{transform: skewY(15deg);}
+#skewxy:hover{transform:skew(-25deg,-15deg);}
+
+/* transition 이란? 요소를 변경할 때 자연스럽게 변경하는 것 
+   transition-property 속성 : 변경할 때 주체가 되는 속성을 지정 
+   transition-duration 속성 : 자연스럽게 변경하는 시간을 지정 
+   transition-timing-function 속성 : 변경하는 속도를 지정 
+   transition-delay 속성 : 변경 시작 전에 대기하는 시간을 지정 
+   transition 속성 : 위 4가지 속성을 한 번에 지정하는 속성( 시간값이 2개이므로 먼저 적히는 값이 duration 뒤에가 delay) */
+.wrap{
+    display: flex;
+    justify-content: center;
+    gap : 20px;
+    height: 600px;
+}
+.wrap div{
+    width: 100px;
+    height: 50px;
+    background-color: blue;
+    color: white;
+}
+.wrap:hover div{
+    height: 500px;
+}
+.wrap:hover #ease{
+    transition-property: height;
+    transition-duration: 3s;
+    transition-timing-function: ease;
+}
+.wrap:hover #linear{
+    transition-property: height;
+    transition-duration: 3s;
+    transition-timing-function: linear;
+}
+.wrap:hover #ease-in{
+    transition: height 3s ease-in;
+}
+.wrap:hover #ease-out{
+    transition: all 3s ease-out;
+}
+.wrap:hover #ease-in-out{
+    transition: all 3s ease-in-out;
+}
+/* 애니메이션 관련 속성들
+    @keyframes : 애니메이션을 정의하는 키워드
+    animation-name 속성 : keyframes로 정의한 애니메이션의 이름을 작성한다.
+    animation-direction 속성 : 애니메이션이 종료한 뒤 처음부터 시작할지, 역방향으로 진행할지 지정
+    animation-iteration-count : 애니메이션을 몇 번 반복할지 지정
+    animation-duration 속성 : 애니메이션 진행 시간
+    animation-delay 속성 : 애니메이션 시작 전 대기 시간
+    animation-timing-function 속성 : 애니메이션의 진행 속도 지정 
+    animation 속성 : 위 속성들을 한 번에 지정*/
+    
+.anibox{
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    animation-name: slideRight;
+    animation-duration : 1s;
+    animation-iteration-count: 5;
+    /* iteration-count 속성값 : 숫자 (몇 번 반복할지) / infinite (무한 번 반복) */
+    animation-direction: alternate;
+    /* direction 속성값
+           normal : from- to 로 진행
+           reverse : to - from 으로 진행
+           alternate : 홀수 번째는 normal 로, 짝수 번째는 reverse 로 진행
+           alternate-reverse : 홀수 번째는 reverse, 짝수 번쨰는 normal 로 진행 */
+}
+@keyframes slideRight{
+    from{transform: translateX(0);}
+    to{transform: translateX(500px);}
+}
+
+.anibox2{
+    width: 100px;
+    height: 100px;
+    margin: 60px auto;
+    border: 1px solid black;
+     animation: rotateBox 1.5s infinite, changeBgBox 1.5s infinite;
+}
+@keyframes rotateBox{
+    0%{transfrom : rotateX(0deg) rotateY(0deg);}
+    50%{transform: rotateX(-180deg) rotateY(0deg);}
+    100%{transform: rotateX(-180deg) rotateY(-180deg);}
+}
+@keyframes changeBgBox{
+    0% {background-color: red;}
+    50% {background-color: green;}
+    100%{background-color: blue;}
+}

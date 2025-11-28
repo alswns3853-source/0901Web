@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 문서 객체 모델(DOM)</title>
+    <style>
+        #clickArea{
+            width: 500px;
+            height: 300px;
+            border: 1px solid black;
+        }
+        
+        #rect{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 30px auto;
+        }
+        #proceed {
+            padding : 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor : pointer; /* 마우스 커서를 손가락 모양으로 만들어준다 */
+        }
+        .disabled {
+            color: #ccc;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+        .enabled{
+            color: white;
+            background-color: #007bff;
+            border: 1px solid #007bff;
+        }
+        #todoCheck{
+            list-style: none;
+        }
+        #todoCheck{
+            font-size: 20px;
+            line-height: 35px;
+        }
+        .check {
+            color: #999;
+            font-size: 20px;
+            margin-right: 25px;
+        }
+
+        form{
+            margin-bottom: 30px;
+        }
+        form > input[type="text"]{
+            width : 30px;
+            height: 20px;
+            text-align: center;
+        }
+        table { width : 300px; }
+        table, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td { padding : 10px; }
+    </style>
+</head>
+<body>
+    <h1 id="heading">에디오피아 게뎁</h1>
+    <div id="detail">
+        <ul>
+            <li>원산지 : 에디오피아</li>
+            <li style="display:none;">지  역 : 이르가체프 코체레</li>
+            <li style="display:none;">농  장 : 게뎁</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div>
+        <h1 id="heading2">아래의 커피사진</h1>
+        <img src="./images/19_images/coffee-pink.jpg" alt="커피잔" id="cup" width="200" height="200">
+    </div>
+
+    <div>
+        <img src="./images/19_images/kitty-1.png" id="cat">
+    </div>
+
+    <hr>
+    
+    <h3>event 객체를 이용해서 문서기준 이벤트 발생한 위치 알아보기</h3>
+
+    <div id="clickArea"></div>
+
+    <input type="text" id="keyInput">
+
+    <hr>
+
+    <h3>this 예약어를 사용해서 이벤트 대상에 접근하기</h3>
+
+    <div>
+        <img src="./images/19_images/cat.jpg" id="cat2">
+    </div>
+
+    <hr>
+
+    <h3>addEventListener 를 이용한 이벤트 처리</h3>
+
+    <div>
+        <img src="./images/19_images/coffee-gray.jpg" id="coffee1">
+    </div>
+
+    <hr>
+
+    <h3>DOM 요소를 이용해서 CSS 속성 변경하기</h3>
+
+    <div>
+        <p>도형 위로 마우스를 올려보세요</p>
+        <div id="rect"></div>
+    </div>
+
+    <hr>
+
+
+    <h3>노드(요소)를 추가하기</h3>
+    <button id="removeBtn">이미지 삭제하기</button>
+    <ul id="itemList">
+        <li>아이템1</li>
+        <li>아이템2</li>
+        <li>아이템3</li>
+    </ul>
+
+    <hr>
+
+    <h3>버튼을 이용해서 노드를 추가하고 삭제하기</h3>
+
+    <button id="createBtn">노드 추가</button>
+    <button id="deleteBtn">노드 삭제</button>
+
+    <ul id="nodeList"></ul>
+    
+    <hr>
+
+    <h3>클래스를 추가 또는 삭제하기</h3>
+
+    <div>
+        <label>
+            <input type ="checkbox" id="agree">필수 항목 동의
+        </label>
+    </div>
+    <div>
+        <button id="proceed" disabled>다음으로 진행</button>
+    </div>
+
+    <hr>
+
+    <h1> 할 일  목록</h1>
+
+    <ul id="todocheck">
+        <li><span class="check">&check;</span>할 일 1</li>
+        <li><span class="check">&check;</span>할 일 2</li>
+        <li><span class="check">&check;</span>할 일 3</li>
+        <li><span class="check">&check;</span>할 일 4</li>
+        <li><span class="check">&check;</span>할 일 5</li>
+    </ul>
+    
+    <hr>
+
+    <h1>입력한 값에 따라서 테이블 만들기</h1>
+
+    <form>
+        <input type="text" id="rCount" value="1">행
+        <input type="text" id="cCount" value="1">열
+        <button onclick="drawTable(); return false;">작성</button>
+    </form>
+
+    <div id="contents"></div>
+
+    <script src="./javascript/19_js.dom.js"></script>  
+</body>
+</html>

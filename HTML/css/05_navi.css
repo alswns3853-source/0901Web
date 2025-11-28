@@ -1,0 +1,89 @@
+#mainNav {
+    margin-top : 10px;
+    margin-bottom : 5px;
+    width : 100%;
+    display : flex;
+    justify-content: space-around;
+    border-top : 1px solid black;
+    border-bottom : 1px solid black;
+}
+
+#mainNav a:link , nav a:visited {
+    text-decoration: none;
+    color: black;
+    font-size : 20px;
+    font-weight : bold;
+}
+
+.navi {
+  position: fixed;
+  bottom: 150px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+}
+
+.naviIcon {
+  position: relative;
+  text-align: center;
+  font-size: 40px;
+  height: 50px;
+  border-radius: 90px;
+  cursor: pointer;
+}
+
+.naviIcon i {
+  color: #b9b9b9;
+}
+
+.naviList {
+  position: absolute;
+  width: 100px;
+  height: 190px;
+  left: -50px;
+  top: -144px;
+  display: none;
+  background-color: transparent;
+}
+
+.naviList li {
+  padding: 2px;
+  margin-bottom: 7px;
+  list-style-type: none;
+  font-size: 16px;
+  background-color: #b9b9b9;
+  border-radius: 4px;
+}
+
+.naviList li a {
+  color: blue;
+}
+
+.naviIcon:hover {
+  background-color: black;
+
+  .naviList {
+    display: block;
+  }
+}
+
+.moveUp,
+.moveDown {
+  position: fixed;
+  bottom: 100px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  border-radius: 90px;
+  text-align: center;
+}
+
+.moveDown {
+  bottom: 50px;
+}
+
+.moveUp i,
+.moveDown i {
+  color: #b9b9b9;
+}

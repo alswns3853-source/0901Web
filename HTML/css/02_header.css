@@ -1,0 +1,36 @@
+header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f3eeea;
+  padding: 0 20px;
+}
+
+header div a {
+  background-color: #ebe5e1;
+  border: 1px solid #ebe5e1;
+  border-radius: 5px;
+  color: #776b5d;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 5px;
+}
+
+header a {
+  width: 200px;
+  height: 100%;
+  background-color: transparent;
+}
+
+.bigImg {
+  background: url(../19_images/images/20240215050618_0.jpg) no-repeat center;
+  background-size: cover;
+  height: 500px;
+}
+
+.bigImg h2 {
+  padding-top: 50px;
+  text-align: center;
+}

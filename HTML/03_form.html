@@ -1,0 +1,144 @@
+<!-- 파일명 : 03_form.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>폼 연습</title>
+</head>
+<body>
+  <!-- form 태그 : 입력한 데이터를 전달하기 위한 태그 ( 입력 가능한 태그는 form 안에 있어야함 ) -->
+  <!-- method 속성 : form태그에서 사용하며, form태그 내의 데이터를 전달하는 방식을 지정 -->
+  <!-- action 속성 : method로 지정한 전달 방식을 어디로 보낼지 url을 작성하는 속성 -->
+  
+  <!-- fieldset 태그 : 폼 요소를 그룹으로 묶는 태그 -->
+  <!-- legend 태그 : fieldset 태그에 제목을 붙여주는 태그 -->
+
+  <!-- label 태그 : 폼 요소에 제목을 붙여주는 태그 -->
+  <!-- for 속성 : 폼 요소의 id명과 동일하게하여 폼 요소와 label 태그를 연결시켜주는 속성 -->
+
+  <h1>레드향 주문하기</h1>
+  
+  <fieldset>
+    <legend>상품 선택</legend>
+    <label>상품명 : <input type="text"></label>
+  </fieldset>
+
+  <fieldset>
+    <legend>배송 정보</legend>
+    <label for="text1">배송 정보 : </label>
+    <input type="text" id="text1">
+  </fieldset>
+
+  <!-- input 태그의 여러가지 type 들 -->
+  <fieldset>
+    <legend>텍스트 작성</legend>
+    <label>text : <input type="text"></label><br>
+    <label>password : <input type="password"></label><br>
+    <label>search : <input type="search"></label><br>
+    <label>url : <input type="url"></label><br>
+    <label>email : <input type="email"></label><br>
+    <label>tel : <input type="tel"></label><br>
+  </fieldset>
+  <fieldset>
+    <legend>라디오 버튼과 체크박스 버튼</legend>
+    <!-- name 속성 : 서버 쪽으로 데이터를 전송할 때 데이터를 가지고 가는 이름
+                     radio 나 checkbox 를 묶어주는 이름 -->
+    <!-- value 속성 : 사용자가 입력하는 타입이 아니므로 
+                     값을 지정해줘야 서버 쪽으로 넘길 때 값이 넘어간다. -->
+    <!-- checked 속성 : 속성값이 따로 없으며, 페이지 로딩이나 초기화 했을 때 
+                        기본적으로 체크된 상태가 보인다. -->
+    <label>radio1 : <input type="radio" name="rd" value="1" checked></label>
+    <label>radio2 : <input type="radio" name="rd" value="2"></label><br>
+    <label>checkbox1 : <input type="checkbox" name="cb" value="1"></label>
+    <label>checkbox2 : <input type="checkbox" name="cb" value="2"></label><br>
+  </fieldset>
+  <fieldset>
+    <legend>숫자 입력 및 범위 입력</legend>
+    <!-- min, max 속성 : 최소값과 최대값을 지정 -->
+    <!-- step 속성 : 한 단계 증가 또는 감소할 때 늘어나고 줄어드는 간격 -->
+    <!-- value 속성 : 기본 값으로 지정할 값 -->
+    <label>number : <input type="number" min="10" max="50" step="5" value="10"></label><br>
+    <label>range : <input type="range" min="0" max="100" step="20" value="0"></label>
+  </fieldset>
+  <fieldset>
+    <legend>날짜와 시간 관련한 타입</legend>
+    <!-- min, max 속성 : 최소값과 최대값을 지정 -->
+    <!-- step 속성 : 한 단계 증가 또는 감소할 때 늘어나고 줄어드는 간격 -->
+    <!-- value 속성 : 기본 값으로 지정할 값 -->
+    <label>date : <input type="date" min="2025-09-01" max="2025-09-30" step="3" value="2025-09-01"></label><br>
+    <label>month : <input type="month"></label><br>
+    <label>week : <input type="week"></label><br>
+    <label>time : <input type="time"></label><br>
+    <label>datetime-local : <input type="datetime-local"></label><br>
+  </fieldset>
+  <fieldset>
+    <legend>버튼 관련한 타입</legend>
+    <!-- value 속성 : 버튼에 적힐 텍스트 구문을 지정 -->
+    <label>submit : <input type="submit" value="작성 완료"></label><br>
+    <label>reset : <input type="reset" value="다 지우기"></label><br>
+    <label>button : <input type="button" value="아무기능없음"></label><br>
+    <label>image : <input type="image" src="./images/04_tag/mic.jpg" alt="그림" width="100"></label><br>
+    <label>file : <input type="file"></label><br>
+  </fieldset>
+  <fieldset>
+    <legend>숨기기 타입</legend>
+    <input type="hidden" name="page" value="1">
+  </fieldset>
+
+  <!-- input 태그의 주요 속성 -->
+  <!-- autofocus 속성 : 페이지를 로딩했을 때 원하는 폼 요소에 포커스가 된다. -->
+  <!-- placeholder 속성 : 입력란에 힌트를 표시, 필드를 클릭하면 사라진다. -->
+  <!-- readonly 속성 : 입력하지 못하게 하며 읽을 수만 있게 한다. -->
+  <!-- required 속성 : 입력란에 반드시 입력을 하게 한다. 필수 입력 체크 -->
+  <form method="get" action="">
+    <fieldset>
+      <legend>배송 정보</legend>
+      <label>주문 상품 <input type="text" placeholder="주문제품의 이름 작성"></label><br>
+      <label>이름 <input type="text" value="홍길동" readonly></label><br>
+      <label>배송 주소 <input type="text" autofocus required></label><br>
+      <label>배송 일자 <input type="date" value="2025-09-10"></label><br>
+    </fieldset>
+    <input type="submit" value="주문하기">
+    <input type="reset" value="초기화하기">
+  </form>
+
+  <!-- 사용자 입력을 input 태그 말고 사용하는 다른 태그들 -->
+
+  <!-- textarea 태그 : 여러 줄을 입력할 수 있는 텍스트 필드 -->
+  <!-- cols / rows 속성 : 가로 / 세로의 입력 길이 수 
+                          ( 지정한 길이보다 많이 입력하면 스크롤바 생김) -->
+  <!-- textarea의 크기 조절을 막고싶다면 style="resize:none;" 속성을 추가하면 된다 -->
+  <textarea cols="30" rows="5"></textarea>
+
+  <!-- select 태그 : 드롭다운 목록을 보여주게 된다. -->
+  <!-- size 속성 : 드롭다운 목록에 나타나는 항목의 개수를 지정한다 -->
+
+  <!-- option 태그 : 드롭다운 목록을 설정하게 된다. -->
+  <!-- value 속성 : 눈에 보이는 것과 다르게 서버 쪽으로 전달할 때 옮겨지는 데이터 -->
+
+  <!-- optgroup 태그 : option 목록을 그룹화해주는 태그 -->
+  <!-- label 속성 : 그룹화 해줄 때 그룹의 제목을 붙여주는 속성 -->
+  <br>
+  <select>
+    <optgroup label="1~3">
+      <option value="1">목록 1</option>
+      <option value="2">목록 2</option>
+      <option value="3">목록 3</option>
+    </optgroup>
+    <optgroup label="4~6">
+      <option value="4">목록 4</option>
+      <option value="5">목록 5</option>
+      <option value="6">목록 6</option>
+    </optgroup>
+  </select>
+
+  <!-- button 태그 : 버튼을 나타낼 때 사용하는 태그 -->
+  <!-- type 속성 : "submit", "reset", "button" input type과 동일한 기능
+                  type 속성을 지정하지 않으면 submit 이 기본 기능으로 작동한다 -->
+  <!-- input과 다른 점 : 버튼 안에 텍스트를 value로 작성하지 않고 태그 사이에 작성한다. -->
+  
+  <button type="button">버튼입니다.</button>
+  <input type="button" value="버튼입니다.">
+</body>
+</html>

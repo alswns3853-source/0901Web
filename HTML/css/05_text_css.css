@@ -1,0 +1,151 @@
+/* font-family 속성 : 글꼴을 지정 */
+/* font-size 속성 : 글자 크기를 지정 ( 절대 크기(px) 또는 상대 크기(em) ) */
+/* font-style 속성 : 글자를 기울기체로 표시 ( normal / italic ) */
+/* font-weight 속성 : 글자의 굵기를 조절 ( normal / bold / bolder / lighter / 100~900 ) */
+
+h1 { font-size : 3em; }
+#p1 {
+    font-size : 1.5em;
+    font-style : italic;
+}
+#p2 {
+    font-size : 30px;
+    font-weight : bolder;
+}
+
+/* 웹 폰트와 아이콘 폰트 */
+/* 웹 폰트 : 구글 폰트 사이트를 사용해서 글꼴을 다운 받아와서 적용 */
+/* 아이콘 폰트 : 폰트어썸 사이트에서 아이콘을 받아와서 적용 */
+
+/* 1. 구글 폰트 사용하는 방법 */
+body {
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+/* 2. 아이콘 폰트 사용하는 방법(css는 사용 안함) */
+/* 위 1번과 2번 사용하는 방법은 txt파일 참고. */
+
+/* color 속성 : 글자 색상 지정
+    1. 색상 이름 표기 : black, white, red, blue 등 이름 자체를 표기하는 방법
+    2. rgb / rgba : rgb(0, 0, 0) / rgba(0, 0, 0, 0) -> rgb의 수치를 넣어서 표기하는 방법
+    3. hsl / hsla : 색상 , 채도 , 밝기를 hsl(0,0,0) / hsal(0,0,0,0) 의 방식으로 수치를 넣어서 표기 
+    4. 16진수 표기법 : #000000 으로 두 칸씩 잘라서 rgb와 동일하며, 가장 많이 사용하는 표기법*/
+
+/* text-align 속성 : 텍스트 정렬 방법을 지정
+    start(앞) / end(뒤) / left(왼쪽) / right(오른쪽) / center(가운데) / 
+    justify(양쪽) / match-parent(부모태그따라) */
+
+.center{
+    color : rgb(100,200,100);
+    text-align : center;
+}
+.justify{
+    color : #a0a0a0;
+    text-align : justify;
+}
+
+/* line-height 속성 : 문단의 줄 높이를 지정
+    숫자 또는 백분율(%) : 부모 태그를 기준으로 몇 배인지 지정
+        *** 보통 1.5배 ~ 2배가 적당하다.
+    px 단위 : 고정 값으로 높이를 지정 */
+.lineheight {
+    line-height : 1.5;
+}
+
+.heading {
+    font-size : 60px;
+    width : 100%;
+    height : 100px;
+    text-align : center;
+    color : white;
+    background : black;
+    line-height : 100px;
+}
+
+/* text-decoration 속성 : 텍스트에 밑줄, 윗줄을 긋거나 가로지르는 줄을 표시 */
+#tdn { text-decoration : none; }
+#tdu { text-decoration : underline; }
+#tdo { text-decoration : overline; }
+#tdl { text-decoration : line-through; }
+#atdn { text-decoration : none; }
+
+/* text-shadow 속성 : 텍스트에 그림자 효과를 추가
+    <가로거리> <세로거리> <번짐정도> <색상> 순서로 속성값을 넣는다. */
+.shadow1 {
+    color : red;
+    text-shadow : 1px 1px black;
+}
+.shadow2 {
+    color : black;
+    text-shadow : 5px 5px 3px yellow;
+}
+.shadow3 {
+    color : white;
+    text-shadow : 7px -7px 20px black;
+}
+
+/* text-transform 속성 : 영문 텍스트의 대문자나 소문자를 변경 */
+.trans1{
+    text-transform : capitalize; 
+}
+.trans2{
+    text-transform : uppercase;
+}
+.trans3{
+    text-transform: lowercase;
+}
+
+/* letter-spacing , word-spacing 속성 : 글자간 간격 / 단어간 간격 */
+#letter{
+    letter-spacing: 10px;
+}
+#word{
+    word-spacing: 10px;
+}
+
+/* 목록 스타일 */
+
+/* list-style-type 속성 : 순서 없는 목록의 불릿이나 순서 목록의 숫자를 바꾸는 속성
+        disc : 채운 원 모양
+        circle : 빈 원 모양
+        square : 채운 사각형 모양
+        decimal : 10진수 숫자
+        lower-roman / upper-roman : 로마 숫자 소/대문자
+        lower-alpha / upper-alpha : 영어 소/대문자
+        none : 없애버리기 */
+.book1 {
+    list-style-type : none;
+}
+.book2 {
+    list-style-type : upper-alpha;
+}
+
+/* list-style-image 속성 : 불릿 이미지를 넣는 속성
+        url(이미지 파일 경로) */
+/* list-style-position 속성 : 목록을 더 들여쓰기하는 속성 */
+.bullet {
+    list-style-position : inside;
+    list-style-image : url('../images/07_images/dot.png');
+}
+
+/* list-style 속성 : 앞서 작성한 
+    list-style-type과 list-style-position, list-style-image 를 한 번에 사용 */
+.liststyle {
+    list-style : inside url('../images/07_images/dot.png');
+    list-style : inside upper-roman;
+}
+
+/* 표 스타일 */
+
+/* caption-side 속성 : table의 caption을 아래쪽으로 표시 가능하게 하는 속성 */
+/* border-spacing 속성 : table의 셀과 셀 사이의 거리 조절
+        수평거리 수직거리 -> 속성값으로 입력 */
+/* border-collapse 속성 : table의 테두리와 셀의 테두리를 합쳐서 표시한다. */
+table, th, td{
+    font-family : 'malgun godic';
+    border : 1px solid black;
+    caption-side : bottom;
+    border-spacing : 10px 20px;
+    border-collapse : collapse;
+}
