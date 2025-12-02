@@ -38,7 +38,7 @@ public class ListcController extends HttpServlet {
 		int pageSize = Integer.parseInt(application.getInitParameter("POSTS_PER_PAGE"));
 		int blockPage = Integer.parseInt(application.getInitParameter("POSTS_PER_BLOCK"));
 		
-		int pageNum = 1;
+		int pageNum = 1;                                                                    
 		String pageTemp = req.getParameter("pageNum");
 		if (pageTemp != null && !pageTemp.equals("")) {
 			pageNum = Integer.parseInt(pageTemp);

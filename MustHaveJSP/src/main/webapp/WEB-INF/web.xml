@@ -62,6 +62,15 @@
 <filter-name>SetCharEncoding</filter-name>
 <url-pattern>/*</url-pattern>
 </filter-mapping>
+<!-- 웹 소켓 설정 -->
+<context-param>
+	<param-name>CHAT_ADDR</param-name>
+	<param-value>ws://localhost:8080/MustHaveJSP</param-value>
+</context-param>
+	<context-param>
+	<param-name>configFile</param-name>
+	<param-value>C:/Users/it/Documents/0901Web/config.properties</param-value>
+	</context-param>
 <!--  <servlet>
 	서블릿의 이름(아래의 서블릿 매핑에서 사용할 이름을 자유롭게 설정)
   <servlet-name>MVCBoardList</servlet-name>
