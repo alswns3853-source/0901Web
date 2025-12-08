@@ -1,5 +1,5 @@
 from selenium import webdriver
-# selenium 라이브러리에서 특정 태그를 찾을 때 필요한 라이브러리
+# selenium을 통해 특정 태그를 찾을 때 필요한 라이브러리
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -9,7 +9,7 @@ import time
 wd = webdriver.Chrome()
 # 결과를 저장할 리스트 변수 선언
 result = []
-# 매개변수 url로 크롬 브라우저를 열어주는 코드
+# 크롬 브라우저를 열어주는 코드
 wd.get("https://www.starbucks.co.kr/store/store_map.do")
 # 페이지 로딩 시간을 기다리는 코드
 time.sleep(1)
@@ -35,7 +35,7 @@ soup = BeautifulSoup(html, 'html.parser')
 for store in soup.select("li.quickResultLstCon"):
     name = store.find('strong').string
     # <br>태그가 있으면 .string으로 저장하는게 불가능
-    # get_text()를 이용하여 <br>태그를 \n으로 변경후 저장
+    # get_text()를 이용하여 <br>태그를 \n으로 변경 후 저장
     addressAndTel = store.find('p').get_text("\n", strip=True).split("\n")
     address = addressAndTel[0]
     tel = addressAndTel[1]
