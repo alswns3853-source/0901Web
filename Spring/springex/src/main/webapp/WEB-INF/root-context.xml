@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--DB, CP 설정-->
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
         <property name="driverClassName" value="org.mariadb.jdbc.Driver" />
         <property name="jdbcUrl" value="jdbc:mariadb://localhost:3306/webdb"/>
@@ -15,4 +17,19 @@
             </props>
         </property>
     </bean>
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+            destroy-method="close">
+        <constructor-arg ref="hikariConfig"/>
+    </bean>
+    <!--  Mybatis 설정(SQL을 xml파일에 작성하여 코드와 SQL을 분리하여 개발하는 방식)  -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- DB연결에 필요한 DataSouce 설정-->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- mybatis에서 사용하는 xml파일의 위치 설정-->
+        <property name="mapperLocations" value="classpath:/mappers/**/*.xml"/>
+    </bean>
+    <!-- xml파일과 연동할 java파일들의 위치 설정 -->
+    <mybatis:scan base-package="org.zerock.springex.mappers" />
+    <!-- 의존성 주입에 사용하는 클래스를 자동으로 bean으로 읽도록 설정 -->
+    <context:component-scan base-package="org.zerock.springex"/>
 </beans>

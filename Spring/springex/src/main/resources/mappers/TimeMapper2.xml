@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- mybatis 맵퍼 관련 자동완성이 나오도록 하는 설정 -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace : sql을 실행하기 위한 인터페이스를 연결하는 부분 -->
+<mapper namespace="org.zerock.springex.mappers.TimeMapper2">
+    <!--  sql을 작성 부분 : select, insert, update, delete-->
+    <!-- id:인터페이스에 작성한 메서드이름-->
+    <!-- resultType : 반환타입 -->
+    <select id="getNow" resultType="string">
+            SELECT now()
+    </select>
+</mapper>

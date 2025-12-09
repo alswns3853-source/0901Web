@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- 어노테이션을 이용하여 MVC모델을 설정하도록 -->
+    <mvc:annotation-driven conversion-service="conversionService"/>
+    <!-- 정적 파일 (이미지, html, css, JavaScript)을  저장할 공간 및 위치를 설정    -->
+    <!-- mapping : url, 주소 -->
+    <!-- location : 파일이 저장된 위치, webapp을 기준으로 탐색 -->
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <!-- jsp파일의 위치 설정 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 화면 파일이 위치한 경로 -->
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <!-- 화면 파일의 확장자 -->
+        <property name="suffix" value=".jsp" />
+    </bean>
+    <!-- 날짜 형식 설정  -->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="formatters">
+            <set>
+                <bean class="org.zerock.springex.controller.formatter.LocalDateFormatter"/>
+            </set>
+        </property>
+    </bean>
+    <context:component-scan base-package="org.zerock.springex"/>
+</beans>
