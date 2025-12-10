@@ -1,5 +1,7 @@
 package org.zerock.springex.dto;
 
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 import org.zerock.springex.vo.TodoVO;
 
@@ -17,9 +19,15 @@ import java.time.LocalDate;
 @EqualsAndHashCode // 기본키를 기준으로 equals, hashCode메서드를 생성
 public class TodoDTO {
     private Long tno; // 기본키(PK)
+//  @Size(min=1, max=10) : 문자 개수, 배열의 개수를 확인
+//  @NotBlank : 빈문자열, null, 스페이스 등의 데이터가 들어있는지 확인
+    @NotEmpty // 빈문자열, null 확인
     private String title; // 제목
+    @NotEmpty
     private String writer; // 작성자
     private boolean finished; // 완료여부
+//  @Past : 과거 날짜인지 확인
+    @Future // 미래 날짜인지 확인
     private LocalDate dueDate; // 날짜
 
     // VO를 DTO로 변환하는 생성자
