@@ -14,8 +14,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @ContextConfiguration(locations="file:src/main/webapp/WEB-INF/root-context.xml")
 class TimeMapperTest {
 
-    // 의존성 주입
-    @Autowired(required = false)
+//  의존성 주입
+    @Autowired(required=false)
     private TimeMapper timeMapper;
 
     @Test

@@ -1,60 +1,60 @@
 plugins {
-  id 'java'
-  id 'war'
+    id 'java'
+    id 'war'
 }
 
 group 'org.zerock'
 version '1.0-SNAPSHOT'
 
 repositories {
-  mavenCentral()
+    mavenCentral()
 }
 
 ext {
-  junitVersion = '5.13.2'
+    junitVersion = '5.10.2'
 }
 
 sourceCompatibility = '17'
 targetCompatibility = '17'
 
 tasks.withType(JavaCompile) {
-  options.encoding = 'UTF-8'
-  options.compilerArgs += ["-parameters"]
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ["-parameters"]
 }
 
 dependencies {
-  compileOnly('jakarta.servlet:jakarta.servlet-api:6.1.0')
+    compileOnly('jakarta.servlet:jakarta.servlet-api:6.1.0')
 
-  testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
-  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
-
-// Spring 라이브러리(스프링 프레임 워크)
-    implementation group: 'org.springframework' , name:'spring-core' , version:'6.2.12'
-    implementation group: 'org.springframework' , name:'spring-context' , version:'6.2.12'
-    implementation group: 'org.springframework' , name:'spring-test' , version:'6.2.12'
-    implementation group: 'org.springframework' , name:'spring-webmvc' , version:'6.2.12'
-    implementation group: 'org.springframework' , name:'spring-jdbc' , version:'6.2.12'
-    implementation group: 'org.springframework' , name:'spring-tx' , version:'6.2.12'
-    // MyBatis 라이브러리
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+//  Spring 라이브러리(스프링 프레임 워크)
+    implementation group: 'org.springframework', name:'spring-core', version:'6.2.12'
+    implementation group: 'org.springframework', name:'spring-context', version:'6.2.12'
+    testImplementation group: 'org.springframework', name:'spring-test', version:'6.2.12'
+    implementation group: 'org.springframework', name:'spring-webmvc', version:'6.2.12'
+    implementation group: 'org.springframework', name:'spring-jdbc', version:'6.2.12'
+    implementation group: 'org.springframework', name:'spring-tx', version:'6.2.12'
+//  MyBatis 라이브러리
     implementation 'org.mybatis:mybatis:3.5.19'
     implementation 'org.mybatis:mybatis-spring:3.0.5'
-    // lombok 라이브러리(getter,setter, 생성자를 어노테이션으로 작성하는 라이브러리)
+//  lombok 라이브러리(getter,setter, 생성자를 어노테이션으로 작성하는 라이브러리)
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
-    // log4j 라이브러리(로그 파일 생성 라이브러리)
-    implementation group:'org.apache.logging.log4j' , name:'log4j-core' , version:'2.17.2'
-    implementation group:'org.apache.logging.log4j' , name:'log4j-api' , version:'2.17.2'
-    implementation group:'org.apache.logging.log4j' , name:'log4j-slf4j-impl' , version:'2.17.2'
-    // JSTL 라이브러리
+//  log4j2 라이브러리(로그 파일 생성 라이브러리)
+    implementation group:'org.apache.logging.log4j', name:'log4j-core', version:'2.17.2'
+    implementation group:'org.apache.logging.log4j', name:'log4j-api', version:'2.17.2'
+    implementation group:'org.apache.logging.log4j', name:'log4j-slf4j-impl', version:'2.17.2'
+//  JSTL 라이브러리
     implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0'
     implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.0'
-    // MariaDB 라이브러리
-        implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.4'
-    // ConnectionPool 라이브러리
-        implementation group:'com.zaxxer', name:'HikariCP', version:'5.0.1'
+//  MariaDB 라이브러리
+    implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.4'
+//  ConnectionPool 라이브러리
+    implementation group:'com.zaxxer', name:'HikariCP', version:'5.0.1'
 }
 
 test {
-useJUnitPlatform()}
+    useJUnitPlatform()
+}

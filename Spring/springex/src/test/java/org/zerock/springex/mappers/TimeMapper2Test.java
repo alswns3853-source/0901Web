@@ -8,11 +8,13 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @Log4j2
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations="file:src/main/webapp/WEB-INF/root-context.xml")
 class TimeMapper2Test {
-    @Autowired(required = false)
+
+    @Autowired(required=false)
     private TimeMapper2 timeMapper2;
 
     @Test

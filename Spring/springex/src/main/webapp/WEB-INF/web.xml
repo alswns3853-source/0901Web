@@ -3,15 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
-    <!-- root-context.xml 설정파일을 프로젝트에 적용    -->
+    <!-- root-context.xml 설정파일을 프로젝트에 적용 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/root-context.xml</param-value>
     </context-param>
     <listener>
-        <listener-class>org.springframework.web.context.ContextCleanupListener</listener-class>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-    <!--  한글이 깨지지 않도록 필터 설정   -->
+    <!--  한글이 깨지지 않도록 필터 설정  -->
     <filter>
         <filter-name>encoding</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -24,7 +24,7 @@
         <filter-name>encoding</filter-name>
         <servlet-name>appServlet</servlet-name>
     </filter-mapping>
-    <!--  Spring에서 사용하는 Servlet설정 -->
+<!--  Spring에서 사용하는 Servlet설정  -->
     <servlet>
         <servlet-name>appServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -38,9 +38,20 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    <!-- localhost:8080/ 로 접속하면 appServlet이 실행되도록 설정   -->
+    <!-- localhost:8080/ 로 접속하면 appServlet이 실행되도록 설정-->
     <servlet-mapping>
         <servlet-name>appServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>
+
+
+
+
+
+
+
+
+
+
+
