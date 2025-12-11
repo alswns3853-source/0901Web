@@ -15,6 +15,63 @@
         INSERT INTO todo (title, dueDate, writer)
             VALUES (#{title}, #{dueDate}, #{writer})
     </insert>
+    <select id="selectAll" resultType="org.zerock.springex.vo.TodoVO">
+        SELECT
+            tno, title, dueDate, finished, writer
+        FROM todo
+        ORDER BY tno DESC
+    </select>
+    <select id="selectById" resultType="org.zerock.springex.vo.TodoVO">
+        SELECT
+            tno, title, dueDate, finished, writer
+        FROM todo
+        WHERE tno = #{tno}
+    </select>
+    <delete id="deleteById">
+        DELETE FROM todo WHERE tno = #{tno}
+    </delete>
+    <update id="updateById">
+        UPDATE todo
+        SET title=#{title}, dueDate=#{dueDate}, finished=#{finished}
+        WHERE tno=#{tno}
+    </update>
+    <select id="selectSearch" resultType="org.zerock.springex.vo.TodoVO">
+        SELECT * FROM todo
+        <include refid="search"></include>
+        ORDER BY tno DESC
+        LIMIT #{skip}, #{size}
+    </select>
+    <select id="getCount" resultType="int">
+        SELECT COUNT(tno)
+        <include refid="search"></include>
+        FROM todo
+    </select>
+    <sql id="search">
+        /* where 안에 주석이든 쿼리든 내용이 들어있다면 WHERE 추가해주는 명령어 */
+        <!--<foreach collection="배열,리스트" item="꺼낸데이터" open="시작문자열" close="종료문자열" separator="반복시 추가할 문자열">-->
+        <where>
+            <if test="types!=null and types.length > 0">
+                <foreach collection="types" item="type" open="(" close=")" separator="OR">
+                    <if test="type=='t'.toString()">
+                        title LIKE concat('%',#{keyword},'%')
+                    </if>
+                    <if test="type=='w'.toString()">
+                        writer LIKE concat('%',#{keyword},'%')
+                    </if>
+                </foreach>
+            </if>
+            <if test="finished">
+                <trim prefix="AND">
+                    finished = 1
+                </trim>
+            </if>
+            <if test="from!=null and to!=null">
+                <trim prefix="AND">
+                    dueDate BETWEEN #{from} AND #{to}
+                </trim>
+            </if>
+        </where>
+    </sql>
 </mapper>
 
 

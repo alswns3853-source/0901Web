@@ -2,6 +2,7 @@ package org.zerock.springex.dto;
 
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Past;
 import lombok.*;
 import org.zerock.springex.vo.TodoVO;
 
@@ -21,7 +22,7 @@ public class TodoDTO {
     private Long tno; // 기본키(PK)
 //  @Size(min=1, max=10) : 문자 개수, 배열의 개수를 확인
 //  @NotBlank : 빈문자열, null, 스페이스 등의 데이터가 들어있는지 확인
-    @NotEmpty // 빈문자열, null 확인
+    @NotEmpty // 빈자열, null 확인
     private String title; // 제목
     @NotEmpty
     private String writer; // 작성자

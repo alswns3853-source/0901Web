@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,5 +52,17 @@
 </div>
 <!-- 부트스트랩 JavaScript를 CDN방식으로 다운로드 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script>
+    const serverValidResult = {};
+    <c:forEach items="${errors}" var="error">
+        serverValidResult['${error.getField()}'] = '${error.defaultMessage}';
+    </c:forEach>
+    console.log(serverValidResult);
+    if(Object.keys(serverValidResult).length > 0){
+        alert("title : " + serverValidResult.title + "\n"
+        +"dueDate : " + serverValidResult.dueDate + "\n"
+        +"writer : " + serverValidResult.writer + "\n")
+    }
+</script>
 </body>
 </html>

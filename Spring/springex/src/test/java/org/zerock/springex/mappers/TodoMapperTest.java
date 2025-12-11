@@ -6,9 +6,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.zerock.springex.dto.PageRequestDTO;
 import org.zerock.springex.vo.TodoVO;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 @Log4j2
@@ -29,6 +31,32 @@ class TodoMapperTest {
                 .writer("user01")
                 .build();
         todoMapper.insert(vo);
+    }
+    @Test
+    void selectAll() {
+        List<TodoVO> voList = todoMapper.selectAll();
+        for(TodoVO vo : voList){
+            log.info(vo);
+        }
+    }
+    @Test
+    void selectById() {
+        TodoVO vo = todoMapper.selectById(1L);
+        log.info(vo);
+    }
+
+    @Test
+    void selectSearch() {
+        PageRequestDTO pageRequestDTO = new PageRequestDTO();
+        pageRequestDTO.setPage(1);
+        pageRequestDTO.setSize(10);
+        pageRequestDTO.setFinished(true);
+        pageRequestDTO.setFrom(LocalDate.of(2025,12,13));
+        pageRequestDTO.setTo(LocalDate.of(2025,12,14));
+        String [] types = {"t","w"};
+        pageRequestDTO.setTypes(types);
+        pageRequestDTO.setKeyword("2");
+        todoMapper.selectSearch(pageRequestDTO);
     }
 }
 
