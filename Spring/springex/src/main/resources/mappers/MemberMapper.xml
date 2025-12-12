@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- mybatis 맵퍼 관련 자동완성이 나오도록 하는 설정 -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.springex.mappers.MemberMapper">
+    <select id="login" resultType="org.zerock.springex.vo.MemberVO">
+        SELECT
+            id, pw, emailId, emailAddress, regidate
+        FROM member
+        WHERE id = #{id} AND pw = #{pw}
+    </select>
+    <insert id="join" >
+        INSERT INTO member (id, pw, emailId, emailAddress)
+        VALUES (#{id}, #{pw}, #{emailId}, #{emailAddress})
+    </insert>
+</mapper>

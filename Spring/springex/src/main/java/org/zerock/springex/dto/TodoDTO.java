@@ -39,7 +39,7 @@ public class TodoDTO {
         this.finished = vo.isFinished();
         this.dueDate = vo.getDueDate();
     }
-    // DTO를 VO로 변환하는 메서드
+    // DTO를 VO로 반환하는 메서드
     public TodoVO convertVO(){
         return TodoVO.builder()
                 .tno(this.tno)

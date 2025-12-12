@@ -43,8 +43,8 @@
     </select>
     <select id="getCount" resultType="int">
         SELECT COUNT(tno)
-        <include refid="search"></include>
         FROM todo
+        <include refid="search"></include>
     </select>
     <sql id="search">
         /* where 안에 주석이든 쿼리든 내용이 들어있다면 WHERE 추가해주는 명령어 */

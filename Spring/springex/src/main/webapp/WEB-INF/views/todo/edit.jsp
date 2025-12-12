@@ -69,7 +69,7 @@
     let formObj = document.formObj;
 
     document.querySelector(".btn-secondary").addEventListener("click", function(){
-        self.location = "/todo/list";
+        self.location = "/todo/list?${pageRequestDTO.link}";
     })
     document.querySelector(".btn-danger").addEventListener("click", function(e){
         e.preventDefault();

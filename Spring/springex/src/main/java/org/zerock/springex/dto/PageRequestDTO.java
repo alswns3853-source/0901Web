@@ -14,7 +14,7 @@ import java.net.URLEncoder;
 import java.time.LocalDate;
 import java.util.Arrays;
 
-@Slf4j
+
 @Builder
 @Data
 @AllArgsConstructor
@@ -62,7 +62,7 @@ public class PageRequestDTO {
         if(types!=null && types.length>0){
 //          type데이터 (제목, 작성자) 가 설정되어 있을 경우 링크에 추가하는 설정
             for(int i=0;i<types.length;i++){
-                builder.append("&type="+types[i]);
+                builder.append("&types="+types[i]);
             }
         }
         if(keyword!=null){

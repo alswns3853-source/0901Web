@@ -13,6 +13,6 @@ public interface TodoMapper {
     TodoVO selectById(Long tno);
     void deleteById(Long tno);
     void updateById(TodoVO vo);
-    List<TodoDTO> selectSearch(PageRequestDTO pageRequestDTO);
+    List<TodoVO> selectSearch(PageRequestDTO pageRequestDTO);
     int getCount(PageRequestDTO pageRequestDTO);
 }

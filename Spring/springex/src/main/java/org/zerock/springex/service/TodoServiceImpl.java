@@ -2,6 +2,8 @@ package org.zerock.springex.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.zerock.springex.dto.PageRequestDTO;
+import org.zerock.springex.dto.PageResponseDTO;
 import org.zerock.springex.dto.TodoDTO;
 import org.zerock.springex.mappers.TodoMapper;
 import org.zerock.springex.vo.TodoVO;
@@ -53,5 +55,22 @@ public class TodoServiceImpl implements TodoService {
     public void edit(TodoDTO dto) {
         TodoVO vo = dto.convertVO();
         todoMapper.updateById(vo);
+    }
+
+    @Override
+    public PageResponseDTO<TodoDTO> getList(PageRequestDTO pageRequestDTO) {
+        // DB에서 할일 목록 조회
+        List<TodoVO> voList = todoMapper.selectSearch(pageRequestDTO);
+        // VO를 DTO로 변환
+        List<TodoDTO> dtoList = voList.stream()
+                .map(vo -> new TodoDTO(vo))
+                .collect(Collectors.toList());
+        // 페이징에 필요한 dto를 생성하여 반환
+        return PageResponseDTO.<TodoDTO>withAll()
+                        .pageRequestDTO(pageRequestDTO)
+                        .dtoList(dtoList)
+                        .total(todoMapper.getCount(pageRequestDTO))
+                        .build();
+
     }
 }

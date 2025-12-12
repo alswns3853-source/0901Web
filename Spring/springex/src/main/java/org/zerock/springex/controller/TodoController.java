@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.zerock.springex.dto.PageRequestDTO;
 import org.zerock.springex.dto.TodoDTO;
 import org.zerock.springex.service.TodoService;
 
@@ -21,15 +22,28 @@ import org.zerock.springex.service.TodoService;
 public class TodoController {
     private final TodoService service;
 
-    @GetMapping("/list")
-    public void list(Model model){
+//    @GetMapping("/list")
+//    public void list(Model model){
 //  반환값을 void로 설정하는 경우 주소를 파일 이름으로 사용하여 jsp파일 실행
 //  prefix + /list + suffix => /WEB-INF/views/todo/list.jsp 화면이 실행됨
-        log.info("GET Todo List.......");
-        model.addAttribute("dtoList", service.getAll());
+//        log.info("GET Todo List.......");
+//        model.addAttribute("dtoList", service.getAll());
+//    }
+@GetMapping("/list")
+public void list(@Valid PageRequestDTO pageRequestDTO,
+                 BindingResult bindingResult, Model model){
+    log.info("GET Todo List.......");
+    if(bindingResult.hasErrors()){
+        // 화면에서 보낸 pageRequestDTO에 문제가 있을 경우
+        // page, size만 설정한 pageRequestDTO를 새로 만들어서 검색
+        pageRequestDTO = PageRequestDTO.builder().build();
     }
+    // jsp에 전달할 데이터 저장
+    model.addAttribute("responseDTO"
+            , service.getList(pageRequestDTO));
+}
     @GetMapping({"/read", "/edit"})
-    public void read(Long tno, Model model){
+    public void read(PageRequestDTO pageRequestDTO,Long tno, Model model){
         TodoDTO dto = service.getById(tno);
         model.addAttribute("dto", dto);
     }
@@ -73,7 +87,7 @@ public class TodoController {
         return "redirect:/todo/read?tno="+dto.getTno();
     }
     @PostMapping("/remove")
-    public String removePOST(Long tno){
+    public String removePOST(Long tno){ 
         log.info("POST Todo Remove...........");
         service.remove(tno);
         return "redirect:/todo/list";
