@@ -1,0 +1,10 @@
+spring:
+  jpa:
+    # sql을 출력하도록 설정
+    show-sql: true
+    properties:
+      hibernate:
+        # SQL문법으로 실행 내용 출력
+        format_sql: true
+    # 스프링 부트 실행시 data.sql을 실행하도록 설정
+    defer-datasource-initialization: true
