@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.zerock.company.mappers.TodoMapper">
+
+    <select id="getTime" resultType="string">
+        SELECT now()
+    </select>
+
+    <insert id="insert">
+        INSERT INTO boards (title, content, id, postdate, visitcount)
+        VALUES (#{title}, #{content}, #{id}, NOW(), 0)
+    </insert>
+
+    <select id="selectAll" resultType="org.zerock.company.vo.TodoVO">
+        SELECT num, title, id, postdate, visitcount
+        FROM boards
+        ORDER BY num DESC
+    </select>
+
+    <select id="selectById" resultType="org.zerock.company.vo.TodoVO">
+        SELECT num, title, content, id, postdate, visitcount
+        FROM boards
+        WHERE num = #{num}
+    </select>
+
+    <delete id="deleteById">
+        DELETE FROM boards
+        WHERE num = #{num}
+    </delete>
+
+    <update id="updateById">
+        UPDATE boards
+        SET title = #{title},
+            content = #{content}
+        WHERE num = #{num}
+    </update>
+
+    <update id="updateVisitCount">
+        UPDATE boards
+        SET visitcount = visitcount + 1
+        WHERE num = #{num}
+    </update>
+
+
+    <select id="selectSearch" resultType="org.zerock.company.vo.TodoVO">
+        SELECT *
+        FROM boards
+        <include refid="search"></include>
+        ORDER BY num DESC
+        LIMIT #{skip}, #{size}
+    </select>
+
+    <select id="getCount" resultType="int">
+        SELECT COUNT(num)
+        FROM boards
+        <include refid="search"></include>
+    </select>
+    <sql id="search">
+        <where>
+            <if test="keyword != null and keyword != ''">
+                title LIKE CONCAT('%', #{keyword}, '%')
+            </if>
+        </where>
+    </sql>
+</mapper>
