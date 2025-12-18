@@ -10,6 +10,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TestController {
     private final TestService testService;
+
     @GetMapping("/test2")
     public List<Member> test2(){
         List<Member> members = testService.getAllMembers();

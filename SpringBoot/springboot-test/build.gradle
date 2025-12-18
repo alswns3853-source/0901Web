@@ -26,11 +26,11 @@ repositories {
 
 dependencies {
 
+    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    // JPA : 데이터베이스 조작 라이브러리
+    // JPA : 데이터베이스 라이브러리
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     // H2 : 인메모리 데이터베이스 , 스프링 부트 실행시 생성되는 데이터베이스
     runtimeOnly 'com.h2database:h2'
@@ -39,8 +39,6 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
-
-
 }
 
 tasks.named('test') {
