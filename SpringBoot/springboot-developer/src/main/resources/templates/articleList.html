@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!-- xmlns:th => 타임리프 추가-->
+<!-- xmlns:sce => 타임리프 스프링 시큐리티 추가-->
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -12,6 +15,15 @@
         <h4 class="mb-3">블로그에 오신 것을 환영합니다.</h4>
     </div>
     <div class="container">
+        <!-- isAuthenticated() : 로그인한 사용자만 보이도록 설정-->
+        <!-- isAnonymous() : 로그인하지 않은 사용자만 보이도록 설정-->
+        <th:block sec:authorize="isAuthenticated()">
+        <button  type="button" id="create-btn"
+                th:onclick="|location.href='@{/new-article}'|"
+                class="btn btn-secondary btn-sm mb-3">글 등록</button>
+        <button  type="button" class="btn btn-secondary btn-sm mb-3" onclick="location.href='/logout'">로그아웃</button>
+        </th:block>
+        <button sec:authorize="isAnonymous()" type="button" class="btn btn-secondary btn-sm mb-3" onclick="location.href='/login'">로그인</button>
         <div class="row-6" th:each="item : ${articles}">
             <div class="card">
                 <div class="card-header" th:text="${item.id}"></div>
@@ -21,7 +33,9 @@
                 <a th:href="@{/articles/{id}(id=${item.id})}" class="btn btn-primary">보러가기</a>
                 </div>
             </div>
+            <br>
         </div>
     </div>
+<script src="/js/article.js"></script>
 </body>
 </html>

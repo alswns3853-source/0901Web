@@ -1,0 +1,27 @@
+package me.shinsunyoung.springbootdeveloper.service;
+
+import lombok.RequiredArgsConstructor;
+import me.shinsunyoung.springbootdeveloper.domain.User;
+import me.shinsunyoung.springbootdeveloper.dto.AddUserRequest;
+import me.shinsunyoung.springbootdeveloper.repository.UserRepository;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+@RequiredArgsConstructor
+@Service
+public class UserService {
+
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    public Long save(AddUserRequest dto){
+        // 저장할 계정 데이터 설정
+        User user = User.builder()
+                .email(dto.getEmail()) // email 설정
+                // 비밀번호를 Bcrypt방식으로 암호화 하여 설정
+                .password(bCryptPasswordEncoder.encode(dto.getPassword()))
+                .build();
+        // DB에 계정 저장 후 id값을 반환
+        return userRepository.save(user).getId();
+    }
+}
