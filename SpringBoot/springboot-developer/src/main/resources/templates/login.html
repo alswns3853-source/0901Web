@@ -30,7 +30,12 @@
                                 <label class="form-label text-white">Password</label>
                                 <input type="password" class="form-control" name="password">
                             </div>
+                            <div class="mb-3">
+                                <input type="checkbox" class="form-check-input" name="remember-me">
+                                <label class="form-check-label text-white">자동 로그인</label>
+                            </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
+                            <a href="/oauth2/authorization/kakao" class="btn btn-primary">카카오 로그인</a>
                         </form>
 
                         <button type="button" class="btn btn-secondary mt-3" onclick="location.href='/signup'">회원가입</button>

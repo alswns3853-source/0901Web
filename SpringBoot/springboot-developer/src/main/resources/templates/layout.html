@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>블로그 글</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="p-5 mb-5 text-center</> bg-light">
+        <h1 class="mb-3"><a href="/">My Blog</a></h1>
+        <h4 class="mb-3">블로그에 오신 것을 환영합니다.</h4>
+    </div>
+    <!-- 본문이 들어갈 부분 설정 -->
+    <div layout:fragment="content">
+
+    </div>
+    <div class="p-5 mb-5 text-center</> bg-light">
+        <h1 class="mb-3"><a href="/static">Footer</a></h1>
+        <h4 class="mb-3">부산광역시 부산진구</h4>
+    </div>
+    <th:block layout:fragment="js" th:inline="javascript">
+
+    </th:block>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/article.js"></script>
+</body>
+</html>

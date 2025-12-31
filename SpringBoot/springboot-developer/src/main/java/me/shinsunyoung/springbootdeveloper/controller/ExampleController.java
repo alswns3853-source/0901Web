@@ -15,8 +15,8 @@ public class ExampleController {
     public String thymeleafExample(Model model){
         Person examplePerson = new Person();
         examplePerson.setId(1L); // PK
-        examplePerson.setName("홍길동"); // 이름
-        examplePerson.setAge(11); // 나이
+        examplePerson.setName("홍길동"); //이름
+        examplePerson.setAge(11); //나이
         examplePerson.setHobbies(List.of("운동", "독서")); // 취미
         model.addAttribute("person", examplePerson); // 객체데이터
         model.addAttribute("today", LocalDate.now()); // 현재시간
@@ -30,6 +30,4 @@ class Person{
     private String name;
     private int age;
     private List<String> hobbies;
-
 }
-
