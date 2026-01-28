@@ -2,7 +2,6 @@ package me.shinsunyoung.springbootdeveloper.controller;
 
 import lombok.RequiredArgsConstructor;
 import me.shinsunyoung.springbootdeveloper.domain.Article;
-import me.shinsunyoung.springbootdeveloper.domain.User;
 import me.shinsunyoung.springbootdeveloper.dto.*;
 import me.shinsunyoung.springbootdeveloper.service.BlogService;
 import me.shinsunyoung.springbootdeveloper.util.FileNameUtil;
