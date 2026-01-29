@@ -5,7 +5,7 @@ export const randomUUID = () => chance.guid();
 export const randomName = () => chance.name();
 export const randomEmail = () => chance.email();
 export const randomId = () => chance.fbid();
-export const randomJobiTitle = () => chance.profession();
+export const randomJobTitle = () => chance.profession();
 export const randomCompanyName = () => chance.company();
 export const randomSentence = (words = 5) => chance.sentence({ words });
 export const randomTitleText = (words = 3) => chance.sentence({ words });
