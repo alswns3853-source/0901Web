@@ -1,0 +1,12 @@
+/* @import url("https://fonts.googleapis.com/icon?family=Material+Icons"); */
+@import "@fontsource/material-icons";
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
+
+.material-icons {
+  font-family: "Material Icons";
+  display: inline-block;
+}
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  display: inline-block;
+}

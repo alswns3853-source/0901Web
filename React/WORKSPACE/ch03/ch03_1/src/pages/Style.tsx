@@ -1,0 +1,15 @@
+export default function CopyMe() {
+  return (
+    <div>
+      <h3>Style</h3>
+      <span className="material-icons" style={{ color: "blue" }}>
+        home
+      </span>
+      <span className="material-icons" style={{ fontSize: 50, color: "red" }}>
+        check_circle_outline
+      </span>
+      <span className="material-symbols-outlined">home_app_logo</span>
+      <span className="material-symbols-outlined">home</span>
+    </div>
+  );
+}
