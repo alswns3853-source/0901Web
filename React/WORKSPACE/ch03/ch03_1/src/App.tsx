@@ -17,9 +17,9 @@ export default function App() {
         <Route path="/4" element={<Icon />} />
       </Routes>
       <div>
-        <Link to="*">Bootstrap</Link>/<Link to="/1">UsingIconWithCSSClass</Link>
-        /<Link to="/2">UsingIcon</Link>/<Link to="/3">Style</Link>/
-        <Link to="/4">Icon</Link>/
+        <Link to="*">Bootstrap</Link>,<Link to="/1">UsingIconWithCSSClass</Link>
+        ,<Link to="/2">UsingIcon</Link>,<Link to="/3">Style</Link>,
+        <Link to="/4">Icon</Link>
       </div>
     </BrowserRouter>
   );

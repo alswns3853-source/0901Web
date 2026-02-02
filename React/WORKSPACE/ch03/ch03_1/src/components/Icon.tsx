@@ -9,7 +9,7 @@ export type IconProps = ReactSpanProps & {
 };
 
 // prettier-ignore
-// ...반복가능한 변수 : 데이터를 펼쳐서 반환하는 연산자
+// ...반복가능한변수 : 데이터를 펼쳐서 반환하는 연산자
 export const Icon: FC<IconProps> = ({name, className: _className, ...props}) => {
   const className = ['material-icons', _className].join(' ')
   return <span {...props} className={className}>{name}</span>

@@ -3,7 +3,7 @@ import { Icon } from "../components";
 export default function UsingIconWithCSSClass() {
   return (
     <div>
-      <h3>UsingconWithCSSClass</h3>
+      <h3>UsingIconWithCSSClass</h3>
       <Icon name="home" className="text-blue" />
       <Icon
         name="check_circle_outline"
