@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type FC } from "react";
+import { useEffect, useRef, useState  } from "react";
 import { Div, Title, Subtitle } from "../components";
 
 const Clock = () => {
@@ -12,7 +12,7 @@ const Clock = () => {
   const text = useRef<HTMLInputElement>(null);
   let count2 = 0; // 일반 변수는 제대로 작동하지 않음
   //   useEffect(()=>{ 실행 코드},[]) 컴포넌트 생성시 실행
-  //   useEffect(()=>{ 실행 코드},[변수]) 변수가 변경될때 실행
+  //   useEffect(()=>{ 실행 코드},[state]) state 변경될때 실행
   //   useEffect(()=>{ return () => 실행 코드 },[]) 컴포넌트 삭제시 실행
   useEffect(() => {
     setInterval(() => {

@@ -1,5 +1,5 @@
-import { Title, Avatar } from "../components";
-import * as D from "../data";
+import { Title, Avatar } from "../../components";
+import * as D from "../../data";
 import { useOrCreate } from "./useOrCreate";
 
 export default function UseOrCreateTest() {
