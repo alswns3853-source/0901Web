@@ -6,7 +6,7 @@ import { Title } from "../../components";
 export default function Callback() {
   // useCallback(실행할함수, 의존성배열)
   const onClick = useCallback(() => alert("button clicked"), []);
-  // const onClick = useCallback(() => alert("button clicked"), []);
+  // const onClick = () => alert("button clicked"), []);
   const buttons = useMemo(
     () =>
       D.makeArray(3)
