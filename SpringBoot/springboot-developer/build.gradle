@@ -59,6 +59,10 @@ dependencies {
 
     // Thymeleaf 레이아웃 라이브러리
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+
+    //jwt
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
 }
 
 tasks.named('test') {

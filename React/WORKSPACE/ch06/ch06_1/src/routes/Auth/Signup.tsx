@@ -1,6 +1,6 @@
 import { useCallback, useState, type ChangeEvent } from 'react';
 import * as D from '../../data'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts';
 
 type SignUpFormType = Record<'email' | 'password' | 'confirmPassword', string>
@@ -27,6 +27,7 @@ export default function Signup() {
   return (
    <div className="flex flex-col min-h-screen bg-gray-100 border border-gray-300 shadow-xl rounded-xl">
     <div className="flex flex-col items-center justify-center flex-1 max-w-sm px-2 mx-auto">
+        <div className="w-full px-6 py-8 text-black bg-white rounded shadow-md">
         <h1 className="mb-8 text-2xl text-center text-primary">Sign up</h1>
         <input
             type="text"
@@ -55,11 +56,21 @@ export default function Signup() {
         <button
             type="submit"
             className="w-full btn btn-primary"
-            onClick={createAccount}
+            onClick={createAccount}>
             CREATE ACCOUT
         </button>
         </div>
+
+        <div className="mt-6 text-grey-800">
+            Already have an account?
+            <Link className="btn btn-link btn-primary" to="/login">
+                LOG IN
+            </Link>
+        </div>
+        </div>
     </div>
-   </div>
   );
 }
+
+
+
