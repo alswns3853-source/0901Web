@@ -27,26 +27,42 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         // 소셜 로그인에 사용한 회사 이름
         String company = userRequest.getClientRegistration().getRegistrationId();
         UserSecurityDTO userSecurityDTO = null;
-        if(company.equals("kakao")){
+        String nickName = null;
+        if (company.equals("kakao")) {
             // 카카오 소셜 로그인
             Map<String, Object> props = oAuth2User.getAttributes();
             LinkedHashMap<String, Object> profile =
                     (LinkedHashMap<String, Object>) props.get("properties");
-            String nickName = profile.get("nickname").toString();
-            User user = userRepository.findByEmailAndSocial(nickName,true).orElse(null);
-            if(user == null){
+            nickName = profile.get("nickname").toString();
+            User user = userRepository.findByEmailAndSocial(nickName, true).orElse(null);
+            if (user == null) {
                 // 소셜 로그인 처음 사용자인 경우
                 user = userRepository.save(User.builder()
+                        .email(nickName)
+                        .password(passwordEncoder.encode("1234"))
+                        .auth("user")
+                        .social(true)
+                        .build());
+            }
+            userSecurityDTO = new UserSecurityDTO(user, props);
+        } else if (company.equals("google")) {
+            // 구글 소셜 로그인 처리
+            Map<String, Object> attributes = oAuth2User.getAttributes();
+            String email = (String) attributes.get("email");
+            String name = (String) attributes.get("name");
+            User user = userRepository.findByEmailAndSocial(name, true)
+                    .map(entity -> entity.update(name))
+                    .orElse(User.builder()
                             .email(nickName)
+                            .nickname(name)
                             .password(passwordEncoder.encode("1234"))
                             .auth("user")
                             .social(true)
                             .build());
-            }
-            userSecurityDTO = new UserSecurityDTO(user, props);
-        }else if(company.equals("google")){
-            // 구글 소셜 로그인 처리
+           User savedUser = userRepository.save(user);
+            userSecurityDTO = new UserSecurityDTO(savedUser, attributes);
         }
         return userSecurityDTO;
     }
+
 }
