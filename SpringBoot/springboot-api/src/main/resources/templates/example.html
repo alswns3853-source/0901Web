@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>타임리프 익히기</h1>
+<!-- th:text : 태그의 시작과 종료태그 사이에 데이터를 출력   -->
+    <p th:text="${#temporals.format(today, 'yyyy-MM-dd')}"></p>
+    <!-- #temporals.format(날짜데이터, 날짜 형식) : 날짜 데이터를 문자열로 출력-->
+    <p>[[${#temporals.format(today, 'yyyy-MM-dd')}]]</p>
+    <!-- th:object : 객체의 데이터를 *{}를 사용하여 꺼내도록 설정하는 기능-->
+    <div th:object="${person}">
+        <p th:text="|이름 : *{name}|"></p>
+        <p th:text="|나이 : *{age}|"></p>
+        <p>취미</p>
+        <!--th:each="변수 : 반복가능한변수"-->
+        <ul th:each="hobby : *{hobbies}">
+            <li th:text="${hobby}"></li>
+            <!--th:if="조건식" : th:if가 true면 태그를 출력-->
+            <span th:if="${hobby == '운동'}">(대표 취미)</span>
+        </ul>
+    </div>
+    <a th:href="@{/api/articles/{id}(id=${person.id})}">글 보기</a>
+
+    <div> <!--th:object를 사용하지 않고 출력하기-->
+        <p th:text="|이름 : ${person.name}|"></p>
+        <p th:text="|나이 : ${person.age}|"></p>
+        <p>취미</p>
+        <ul th:each="hobby : ${person.hobbies}">
+            <li th:text="${hobby}"></li>
+            <span th:if="${hobby == '운동'}">(대표 취미)</span>
+        </ul>
+    </div>
+</body>
+</html>

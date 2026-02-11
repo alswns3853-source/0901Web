@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--th:fragment="이름" : include하기위한 이름 설정-->
+    <!-- 다른 파일에서 fragment가 적혀있는 태그를 그대로 넣을 수 있음-->
+    <div th:fragment="fragment-header" class="p-5 mb-5 text-center</> bg-light">
+        <h1 class="mb-3"><a href="/">My Blog</a></h1>
+        <h4 class="mb-3">블로그에 오신 것을 환영합니다.</h4>
+    </div>
+    <div th:fragment="fragment-footer" class="p-5 mb-5 text-center</> bg-light">
+        <h1 class="mb-3"><a href="/">Footer</a></h1>
+        <h4 class="mb-3">부산광역시 부산진구</h4>
+    </div>
+</body>
+</html>

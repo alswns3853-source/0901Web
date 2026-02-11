@@ -1,0 +1,5 @@
+INSERT INTO article (title, content,user_id,created_at, updated_at) VALUES ('제목1', '내용1','admin@gmail.com', NOW(), NOW())
+INSERT INTO article (title, content,user_id,created_at, updated_at) VALUES ('제목2', '내용2', 'hong@gmail.com' ,NOW(), NOW())
+INSERT INTO article (title, content,user_id,created_at, updated_at) VALUES ('제목3', '내용3', 'admin@gmail.com' ,NOW(), NOW())
+INSERT INTO users (email,auth,password) VALUES ('admin@gmail.com','admin','$2a$10$PR7oXvQ.Iz8WQo1P6Fw68ei8s261C55Rg2Y4Cq7z7l7ciQk5avZQG')
+INSERT INTO users (email,auth,password) VALUES ('hong@gmail.com','user','$2a$10$PR7oXvQ.Iz8WQo1P6Fw68ei8s261C55Rg2Y4Cq7z7l7ciQk5avZQG')
