@@ -18,7 +18,7 @@ public class CookieUtil {
     // 쿠키 삭제 메서드
     public static void deleteCookie(HttpServletRequest request, HttpServletResponse response, String name) {
         Cookie[] cookies = request.getCookies();
-        if (cookies != null) {
+        if (cookies == null) {
             return;
         }
         

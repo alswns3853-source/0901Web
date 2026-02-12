@@ -17,7 +17,13 @@ export default function Login() {
       password: passwordRef.current?.value || "",
     };
     try {
-      await axios.post("http://localhost:8080/api/login", data);
+      const response = await axios.post(
+        "http://localhost:8080/api/login",
+        data,
+      );
+      console.log(response.data);
+      localStorage.setItem("access_token", response.data["accessToken"]);
+      localStorage.setItem("user_id", response.data["userId"]);
       navigate("/articles");
     } catch (e) {
       console.log(e);

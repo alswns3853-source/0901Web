@@ -48,8 +48,10 @@ public class UserApiController {
         // 리프레시 토큰 설정
         CookieUtil.deleteCookie(request, response, "refresh_token");
         CookieUtil.addCookie(response, "refresh_token", refreshToken, (int)Duration.ofDays(14).toSeconds());
+        // 리액트에 전달할 데이터 설정
         Map<String, String> map = new HashMap<>();
         map.put("accessToken", accessToken);
+        map.put("userId", user.getEmail());
 
         // 엑세스 토큰 설정 후 반환
         return ResponseEntity.ok().body(map);

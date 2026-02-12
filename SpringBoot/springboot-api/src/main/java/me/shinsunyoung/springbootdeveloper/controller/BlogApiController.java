@@ -41,20 +41,20 @@ public class BlogApiController {
                 .body(savedArticle);
     }
     @GetMapping("/api/articles")
-    public ResponseEntity<List<ArticleResponse>> findAllArticles(){
-        List<ArticleResponse> articles = blogService.findAll()
+    public ResponseEntity<List<ArticleViewResponse>> findAllArticles(){
+        List<ArticleViewResponse> articles = blogService.findAll()
                 .stream() // 한건한건 반복하여 dto로 변경
                 //.map(article -> new ArticleResponse(article)) // 람다식
-                .map(ArticleResponse::new) // 참조 표현식
+                .map(ArticleViewResponse::new) // 참조 표현식
                 .toList();
         return ResponseEntity.ok().body(articles);
     }
     @GetMapping("/api/articles/{id}")
-    public ResponseEntity<ArticleResponse> findArticle(
+    public ResponseEntity<ArticleViewResponse> findArticle(
             // 주소창에 {id}에 들어있는 데이터를 @PathVariable에 저장
             @PathVariable("id") long id){
         Article article = blogService.findById(id);
-        return ResponseEntity.ok().body(new ArticleResponse(article));
+        return ResponseEntity.ok().body(new ArticleViewResponse(article));
     }
     @DeleteMapping("/api/articles/{id}")
     public ResponseEntity<Void> deleteArticle(@PathVariable("id") long id){
@@ -62,16 +62,18 @@ public class BlogApiController {
         return ResponseEntity.ok().build();
     }
     @PutMapping("/api/articles/{id}")
-    public ResponseEntity<Article> updateArticle(
+    public ResponseEntity<ArticleViewResponse> updateArticle(
             @PathVariable("id") long id,
-            @ModelAttribute UpdateArticleRequest request){
-        UploadFileDTO fileDTO = new UploadFileDTO();
-        fileDTO.setFiles(request.getFiles());
-        List<FileNameUtil> fileList = fileUtil.uploadFile(fileDTO);
-        // PK는 주소창에서 변경할 데이터는 파라미터로 받아옴
+            @RequestBody UpdateArticleRequest request){
+//        UploadFileDTO fileDTO = new UploadFileDTO();
+//        fileDTO.setFiles(request.getFiles());
+//        List<FileNameUtil> fileList = fileUtil.uploadFile(fileDTO);
+        List<FileNameUtil> fileList = null;
+                // PK는 주소창에서 변경할 데이터는 파라미터로 받아옴
         Article updatedArticle = blogService.update(id, request,fileList);
+        ArticleViewResponse respArticle = new ArticleViewResponse(updatedArticle);
         return ResponseEntity.ok()
-                .body(updatedArticle);
+                .body(respArticle);
     }
     @DeleteMapping("/api/img/{id}")
     public ResponseEntity<Void> deleteImage(

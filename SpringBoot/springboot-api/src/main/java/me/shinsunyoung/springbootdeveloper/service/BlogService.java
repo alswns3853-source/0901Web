@@ -95,7 +95,9 @@ public class BlogService {
 
         authorizeArticleAuthor(article);
         article.update(request.getTitle(), request.getContent());
-        article.changeImage(fileList);
+        if(fileList != null && !fileList.isEmpty()) {
+            article.changeImage(fileList);
+        }
         return article;
     }
 

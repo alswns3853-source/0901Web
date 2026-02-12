@@ -6,6 +6,8 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
 import me.shinsunyoung.springbootdeveloper.domain.User;
+import me.shinsunyoung.springbootdeveloper.dto.UserSecurityDTO;
+import me.shinsunyoung.springbootdeveloper.service.UserService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -21,6 +23,7 @@ import java.util.Set;
 public class TokenProvider {
 
     private final JwtProperties jwtProperties;
+    private final UserService userService;
     // 토큰 생성 매서드(로그인 혹은 토큰 재생성시)
     public String generateToken(User user, Duration expiredAt){
         Date now = new Date(); // 현재 날짜
@@ -63,12 +66,10 @@ public class TokenProvider {
     }
     // 토큰의 권한을 반환하는 메서드(특정 권한이 필요한 페이지의 경우)
     public Authentication getAuthentication(String token){
-        Claims claims = getClaims(token); // 토큰의 데이터를 변수에 저장
-        // ROLE_USER권한 객체 생성
-        Set<SimpleGrantedAuthority> authorities = Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
+        Long userId = getUserId(token);
+        UserSecurityDTO user = new UserSecurityDTO(userService.findById(userId));
         // SpringSecurity에서 사용하는 유저 객체를 반환
-        return new UsernamePasswordAuthenticationToken(new org.springframework.security.core.userdetails
-                .User(claims.getSubject(), "", authorities), token, authorities);
+        return new UsernamePasswordAuthenticationToken(user, token, user.getAuthorities());
     }
     // 토큰에 있는 id 클레임을 반환하는 메서드
     public Long getUserId(String token){
