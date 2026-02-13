@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import me.shinsunyoung.springbootdeveloper.config.jwt.TokenProvider;
 import me.shinsunyoung.springbootdeveloper.domain.RefreshToken;
 import me.shinsunyoung.springbootdeveloper.domain.User;
+import me.shinsunyoung.springbootdeveloper.dto.UserSecurityDTO;
 import me.shinsunyoung.springbootdeveloper.repository.RefreshTokenRepository;
 import me.shinsunyoung.springbootdeveloper.service.UserService;
 import me.shinsunyoung.springbootdeveloper.util.CookieUtil;
@@ -16,6 +17,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 
 @RequiredArgsConstructor
@@ -24,7 +27,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     public static final String REFRESH_TOKEN_COOKIE_NAME = "refresh_token";
     public static final Duration REFRESH_TOKEN_DURATION= Duration.ofDays(14);
     public static final Duration ACCESS_TOKEN_DURATION= Duration.ofDays(1);
-    public static final String REDIRECT_PATH = "/articles";
+    public static final String REDIRECT_PATH = "http://localhost:5173/social";
 
     private final TokenProvider tokenProvider;
     private final RefreshTokenRepository  refreshTokenRepository;
@@ -38,7 +41,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         // 로그인시 저장된 유저데이터를 변수에 저장
         OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
         // DB에서 유저 데이터가 있으면 변수에 저장
-        User user = userService.findByEmailAndSocial((String)oAuth2User.getAttributes().get("email"));
+        User user = userService.findByEmailAndSocial(((UserSecurityDTO)oAuth2User).getUser().getEmail());
         // 리프레시토큰 생성
         String refreshToken = tokenProvider.generateToken(user, REFRESH_TOKEN_DURATION);
         // 리프레시토큰 저장
@@ -48,7 +51,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         // 엑세스 토큰 생성
         String accessToken = tokenProvider.generateToken(user, ACCESS_TOKEN_DURATION);
         // 다음페이지 설정
-        String targetUrl = getTargetUrl(accessToken);
+        String targetUrl = getTargetUrl(accessToken, user.getEmail());
        // 인증정보와 쿠키제거
         clearAuthenticationAttributes(request, response);
         // articles 페이지로 리다이렉트
@@ -76,13 +79,18 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         // 쿠키 제거
         authorizationRequestRepository.removeAuthorizationRequestCookies(request, response);
     }
-    private String getTargetUrl(String token) {
-//      uri 문자열 생성 :  /articles?token=accessToken 
-        return UriComponentsBuilder.fromUriString(REDIRECT_PATH)
-                .queryParam("token", token)
-                .build()
-                .toUriString();
+    private String getTargetUrl(String token, String userId) {
+//      uri 문자열 생성 :  /articles?token=accessToken&userId=아이디
+        try{
+            String encodedId = URLEncoder.encode(userId, StandardCharsets.UTF_8);
+            return UriComponentsBuilder.fromUriString(REDIRECT_PATH)
+                    .queryParam("token", token)
+                    .queryParam("userId", encodedId)
+                    .build()
+                    .toUriString();
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
-
-
 }

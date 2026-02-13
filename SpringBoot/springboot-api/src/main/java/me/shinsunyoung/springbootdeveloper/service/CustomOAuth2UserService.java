@@ -53,7 +53,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             User user = userRepository.findByEmailAndSocial(email, true)
                     .map(entity -> entity.update(name))
                     .orElse(User.builder()
-                            .email(nickName)
+                            .email(email)
                             .nickname(name)
                             .password(passwordEncoder.encode("1234"))
                             .auth("user")

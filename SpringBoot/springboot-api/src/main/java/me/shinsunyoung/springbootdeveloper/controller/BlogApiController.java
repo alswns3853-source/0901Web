@@ -2,7 +2,6 @@ package me.shinsunyoung.springbootdeveloper.controller;
 
 import lombok.RequiredArgsConstructor;
 import me.shinsunyoung.springbootdeveloper.domain.Article;
-import me.shinsunyoung.springbootdeveloper.domain.User;
 import me.shinsunyoung.springbootdeveloper.dto.*;
 import me.shinsunyoung.springbootdeveloper.service.BlogService;
 import me.shinsunyoung.springbootdeveloper.util.FileNameUtil;
@@ -87,5 +86,12 @@ public class BlogApiController {
             blogService.removeImage(dto.getUuid());
         }
         return ResponseEntity.ok().build();
+    }
+    @GetMapping("/api/articleList")
+    public  ResponseEntity<PageResponseDTO<ArticleListViewResponse>> searchArticles (
+            PageRequestDTO pageRequestDTO){
+        PageResponseDTO<ArticleListViewResponse> articleList =
+                blogService.searchArticle(pageRequestDTO);
+        return ResponseEntity.ok().body(articleList);
     }
 }
